@@ -22,8 +22,6 @@
     body {
         padding-top: 3rem;
         padding-bottom: 3rem;
-        padding-left: .5rem;
-        padding-right: .5rem;
         color: Black;
     }
     /* CUSTOMIZE THE CAROUSEL
@@ -70,6 +68,80 @@
         line-height: 1;
         letter-spacing: -.05rem;
     }
+    
+    #firstFeaturette {
+        padding-left: 2rem;
+    }
+    
+    .regularHeader {
+        text-align: center;
+        padding-top: 1em;
+    }
+    
+    .regularSubHeader {
+        text-align: center;
+    }
+    
+    h3 {
+        text-align: center;
+        padding-top: 1.1em;
+        padding-bottom: 1.1em;
+    }
+    
+    form {
+        text-align: left;
+        padding: 25px;
+    }
+    /* Font Awesome color changes */
+    
+    .fa-pencil-alt {
+        color: darkgoldenrod;
+    }
+    
+    .fa-binoculars {
+        color: darkblue;
+    }
+    
+    .fa-trash-alt {
+        color: darkred;
+    }
+    /**********************************/
+    
+    .formContainer {
+        padding: 15px;
+    }
+    
+    .firstRow {
+        font-weight: bold;
+    }
+    
+    .justifycenter {
+        text-align: center;
+        font-weight: bold;
+        font-style: italic;
+        color: rgb(3, 3, 66);
+    }
+    
+    .btnjustifycenter {
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    #errorMsg {
+        color: red;
+        font-weight: bold;
+    }
+    
+    #teamLink {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    
+    #msgDiv {
+        color: darkred;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
     /* RESPONSIVE CSS
   -------------------------------------------------- */
     
@@ -77,16 +149,32 @@
         /* Bump up size of carousel content */
         .carousel-caption p {
             margin-bottom: 1.25rem;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             line-height: 1.4;
         }
         .featurette-heading {
             font-size: 50px;
         }
+        #imgcrochetsquares {
+            background-image: url("../images/crochetsquares300.jpg");
+            width: 300px;
+            height: 300px;
+            background-repeat: no-repeat;
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
     
     @media (min-width: 62em) {
         .featurette-heading {
-            margin-top: 7rem;
+            margin-top: 1rem;
+        }
+        #imgcrochetsquares {
+            background-image: url("../images/crochetsquares300.jpg");
+            width: 300px;
+            height: 300px;
+            background-repeat: no-repeat;
+            margin-right: auto;
+            margin-left: auto;
         }
     }

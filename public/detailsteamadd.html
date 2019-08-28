@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Page to dynamically create a table to fill in team details to create a team.-->
+
+<head>
+    <link rel="icon" href="images/favicon.ico" />
+    <title>Hip To Be Square</title>
+    <!--JavaScript sheet-->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Hip to be Square</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:8081/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="teams.html">Teams</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--End Navigation Bar-->
+
+    <!--Header-->
+    <div class="container">
+        <header>
+            <h1 class="display-3 regularHeader">Hip to be Square!</h1>
+            <h2 class="regularSubHeader">Team Details - Input a New Team</h2>
+        </header>
+    </div>
+    <!--container end -->
+
+    <!--Message Div for updates-->
+    <div class="row">
+        <div class="col-md-6 offset-md-4">
+            <div id="msgDiv"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3 formContainer">
+            <div id="imgcrochetsquares"></div>
+        </div>
+    </div>
+    <!--row end-->
+
+    <!--Entry and Update Table for Team -->
+    <form id="detailsInputForm" name="detailsInputForm" method="post" action="#">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 formContainer">
+                <label for="teamId">Team ID</label>
+                <input id="teamId" name="teamid" placeholder="19FTPACTR" required>
+                <br />
+                <label for="teamName">Team Name</label>
+                <input id="teamName" name="teamname" placeholder="Team Name" required>
+                <br />
+                <label for="leagueChoice">Organization</label>
+                <select id="leagueChoice" name="leaguecode">
+                    <option value="zero" selected>Select One</option>
+                </select>
+                <br />
+                <label for="teamType">Knitting or Crocheting?</label>
+                <input id="teamType" name="teamtype" placeholder="Team Type" required>
+                <br />
+                <label for="managerName">Team Manager Name</label>
+                <input id="managerName" name="managername" placeholder="John Doe" required>
+                <br />
+                <label for="managerPhone">Team Manager Phone Number</label>
+                <input id="managerPhone" name="managerphone" placeholder="860-555-1234" required>
+                <br />
+                <label for="managerEmail">Team Manager Email Address</label>
+                <input id="managerEmail" name="manageremail" placeholder="johndoe@gmail.com" required>
+                <br />
+                <label for="maxTeamMembers">Maximum Team Members</label>
+                <input id="maxTeamMembers" name="maxteammembers" placeholder="10" required>
+                <br />
+                <label for="minMemberAge">Minimum Member Age</label>
+                <input id="minMemberAge" name="minmemberage" placeholder="5" required>
+                <br />
+                <label for="maxMemberAge">Maximum Member Age</label>
+                <input id="maxMemberAge" name="maxmemberage" placeholder="100" required>
+                <br />
+                <label for="teamGender">Team Gender</label>
+                <input id="teamGender" name="teamgender" placeholder="Any" required>
+            </div>
+        </div>
+    </form>
+
+    <!--Register Button -->
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div id="addCancelButtons" class="container">
+                <input class="btn btn-md btn-success" id="btnAddTeam" name="btnAddTeam" type="button" value="Add New Team">
+                <input class="btn btn-md btn-secondary" id="btnCancelAdd" name="btnCancelAdd" type="button" value="Cancel">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2019 Pam Belknap &middot;</p>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--External js script-->
+    <script src="scripts/detailsinstruct.js"></script>
+</body>
+
+</html>
