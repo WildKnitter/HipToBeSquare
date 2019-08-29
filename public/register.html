@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Page to enter student info to register for a course and have the results post to a JSON file.-->
+
+<head>
+    <link rel="icon" href="images/favicon.ico" />
+    <title>Learning is Fun</title>
+    <!--JavaScript sheet-->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <!--Top Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-black bg-success">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="courses.html">Courses</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--Top Navigation Bar End-->
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <header>
+                <h1 class="display-3">LEARNING IS FUN!</h1>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <h2 id="subHeading">Registration Form</h2>
+                    </div>
+                </div>
+                <!--row end-->
+            </header>
+        </div>
+        <!--container end -->
+    </div>
+    <!--Junbotron heading end -->
+    <!--Buttons-->
+    <div class="row">
+        <div class="col-md-4 offset-md-5">
+            <div id="registrationButtons" class="container">
+                <input class="btn btn-md btn-success" id="btnRegisterForCourse" name="btnRegisterForCourse" type="button" value="Register!">
+                <input class="btn btn-md btn-secondary" id="btnCancel" name="btnCancel" type="button" value="Cancel">
+            </div>
+        </div>
+    </div>
+
+    <h3>Please Fill In Form below</h3>
+
+    <!--Registration Form-->
+    <div class="row">
+        <div class="col-md-10 offset-md-2">
+            <form id="registrationForm" name="registrationForm" method="POST" action="index.html">
+                <label for="courseid">Course ID</label>
+                <input id="courseid" name="courseid" readonly>
+                <label for="studentname">Student Name</label>
+                <input id="studentname" name="studentname" placeholder="John Smith" autofocus required>
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" placeholder="johnsmith@email.com" required>
+            </form>
+        </div>
+    </div>
+
+    <!--Message Div for updates-->
+    <div class="row">
+        <div class="col-md-4 offset-md-5">
+            <div id="msgDiv"></div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>&copy; Pam Belknap 2019</p>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--External js script-->
+    <script src="scripts/register.js"></script>
+</body>
+
+</html>

@@ -22,20 +22,15 @@ $(function() {
     getLeaguesList();
 });
 
-// getLeagues Function to fill the unordered list for LEAGUES on the Index Page.
 function getLeaguesList() {
     let objs;
     //Starts the communication to the server
-    $.getJSON(
-        "/api/leagues",
-        //This function doesn't necessarily run instantaneously
-        function(data) {
-            objs = data;
-            $("#leagueList").empty();
-            for (let i = 0; i < objs.length; i++) {
-                let markupList = "<ul><li>" + objs[i].Name + "</li></ul>";
-                $("#leagueList").append(markupList);
-            } // end of for
-        } // end of CALLBACK function
-    ); // end of call to $.getJSON     
+    $.getJSON("/api/leagues", data => {
+        objs = data;
+        $("#leagueList").empty();
+        for (let i = 0; i < objs.length; i++) {
+            const markupList = `<ul><li> ${objs[i].Name} </li></ul>`;
+            $("#leagueList").append(markupList);
+        } // end of for
+    }); // end of call to $.getJSON     
 } // end of getLeaguesList function
