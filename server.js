@@ -574,7 +574,6 @@ app.delete("/api/teams/:teamid/members/:memberid", urlencodedParser, function(re
     res.status(200).send();
 })
 
-
 // ------------------------------------------------------------------------------
 // SITE SET-UP
 
