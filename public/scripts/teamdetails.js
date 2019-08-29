@@ -65,15 +65,15 @@ $(function() {
                                     $("#memberCnt").html(objs[i].Members.length);
                                 }
                                 $("#memberTableHead").empty();
-                                let markupHeader = "<tr><th>Member Name</th><th>Member Email</th><th>Unregister</th></tr>";
+                                let markupHeader = "<tr><th>Member Name</th><th>Member Id</th><th>Member Email</th><th>Unregister</th></tr>";
                                 $("#memberTableHead").append(markupHeader);
                                 $("#memberTableHead").css("font-weight", "bold");
                                 $("#memberTableBody").empty();
                                 for (let j = 0; j < objs[i].Members.length; j++) {
-                                    let urlunreg = "unregister.html?teamid=" + chosenDetail + "&membername=" + objs[i].Members[j].MemberName + "&email=" + objs[i].Members[j].Email;
+                                    let urlunreg = "unregister.html?teamid=" + chosenDetail + "&membername=" + objs[i].Members[j].MemberName + "&memberid=" + objs[i].Members[j].MemberId + "&email=" + objs[i].Members[j].Email;
                                     //encode URI to be able to pass the string with spaces, email, etc.
                                     let encodedURI = encodeURI(urlunreg);
-                                    let markupBody9 = "<tr><td>" + objs[i].Members[j].MemberName + "</td><td>" + objs[i].Members[j].Email + "</td><td><a class='mr-2' title='Unregister' href=" + encodedURI + "><i class='fas fa-trash-alt fa-lg' aria-hidden='true'></i></a></tr>";
+                                    let markupBody9 = "<tr><td>" + objs[i].Members[j].MemberName + "</td><td>" + objs[i].Members[j].MemberId + "</td><td>" + objs[i].Members[j].Email + "</td><td><a class='mr-2' title='Unregister' href=" + encodedURI + "><i class='fas fa-trash-alt fa-lg' aria-hidden='true'></i></a></tr>";
                                     $("#memberTableBody").append(markupBody9);
                                 } // end of if for member table load
                             } // end of if for table load

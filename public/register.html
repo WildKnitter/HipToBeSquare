@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Page to enter student info to register for a course and have the results post to a JSON file.-->
+<!--Page to enter member info to register for a team and have the results post to a JSON file.-->
 
 <head>
     <link rel="icon" href="images/favicon.ico" />
-    <title>Learning is Fun</title>
+    <title>Hip To Be Square</title>
     <!--JavaScript sheet-->
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,52 +13,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- External CSS -->
     <link rel="stylesheet" href="css/styles.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
 </head>
 
 <body>
-    <!--Top Navigation Bar-->
-    <nav class="navbar navbar-expand-lg navbar-black bg-success">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-            <ul class="navbar-nav">
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Hip to be Square</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="http://localhost:8081/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="courses.html">Courses</a>
+                <li class="nav-item ">
+                    <a class="nav-link " href="teams.html">Teams</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <!--Top Navigation Bar End-->
+    <!--End Navigation Bar-->
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <div class="container">
-            <header>
-                <h1 class="display-3">LEARNING IS FUN!</h1>
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
-                        <h2 id="subHeading">Registration Form</h2>
-                    </div>
-                </div>
-                <!--row end-->
-            </header>
-        </div>
-        <!--container end -->
+    <!--Heading-->
+    <div class="container">
+        <header>
+            <h1 class="display-3 regularHeader">Hip to be Square!</h1>
+            <h2 class="regularSubHeader">Team Member Registration</h2>
+        </header>
     </div>
-    <!--Junbotron heading end -->
-    <!--Buttons-->
-    <div class="row">
-        <div class="col-md-4 offset-md-5">
-            <div id="registrationButtons" class="container">
-                <input class="btn btn-md btn-success" id="btnRegisterForCourse" name="btnRegisterForCourse" type="button" value="Register!">
-                <input class="btn btn-md btn-secondary" id="btnCancel" name="btnCancel" type="button" value="Cancel">
-            </div>
-        </div>
-    </div>
+    <!--container end -->
 
     <h3>Please Fill In Form below</h3>
 
@@ -66,12 +52,28 @@
     <div class="row">
         <div class="col-md-10 offset-md-2">
             <form id="registrationForm" name="registrationForm" method="POST" action="index.html">
-                <label for="courseid">Course ID</label>
-                <input id="courseid" name="courseid" readonly>
-                <label for="studentname">Student Name</label>
-                <input id="studentname" name="studentname" placeholder="John Smith" autofocus required>
+                <label for="teamid">Team ID</label>
+                <input id="teamid" name="teamid" readonly>
+                <br />
+                <label for="membername">Member Name</label>
+                <input id="membername" name="membername" type="text" placeholder="John Smith" autofocus required>
+                <br />
+                <label for="contactname">Contact Name (If Minor)</label>
+                <input id="contactname" name="contactname" type="text" placeholder="Jane Smith">
+                <br />
                 <label for="email">Email Address</label>
                 <input id="email" name="email" type="email" placeholder="johnsmith@email.com" required>
+                <br />
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" placeholder="860-555-1234" required>
+                <br />
+                <label for="age">Member Age</label>
+                <input id="age" name="age" type="number" placeholder="18" required>
+                <br />
+                <input type="radio" name="gender" id="male" value="Male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female" value="Female" checked>
+                <label for="female">Female</label>
             </form>
         </div>
     </div>
@@ -83,8 +85,20 @@
         </div>
     </div>
 
+    <!--Buttons-->
+    <div class="row">
+        <div class="col-md-4 offset-md-5">
+            <div id="registrationButtons" class="container">
+                <input class="btn btn-md btn-success" id="btnRegisterForTeam" name="btnRegisterForTeam" type="button" value="Register!">
+                <input class="btn btn-md btn-secondary" id="btnCancel" name="btnCancel" type="button" value="Cancel">
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
     <footer class="container">
-        <p>&copy; Pam Belknap 2019</p>
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2019 Pam Belknap &middot;</p>
     </footer>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
