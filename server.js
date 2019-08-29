@@ -137,8 +137,8 @@ function isValidMember(member) {
         return false;
     if (member.MemberName == undefined || member.MemberName.trim() == "")
         return false;
-    if (member.ContactName == undefined || member.ContactName.trim() == "")
-        return false;
+    //if (member.ContactName == undefined || member.ContactName.trim() == "")
+    //    return false;
     if (member.Phone == undefined || member.Phone.trim() == "")
         return false;
     if (member.Age == undefined || isNaN(member.Age))

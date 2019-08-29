@@ -36,6 +36,15 @@
                 "Age": 65,
                 "Gender": "Female",
                 "Phone": "860-555-9689"
+            },
+            {
+                "MemberId": 103,
+                "Email": "angiel@gmail.com",
+                "MemberName": "Angie Lopez",
+                "ContactName": "Angie Lopez",
+                "Age": 40,
+                "Gender": "Female",
+                "Phone": "860-555-7894"
             }
         ]
     },
@@ -71,7 +80,6 @@
             }
         ]
     },
-
     {
         "TeamId": 3,
         "TeamName": "KnittingFools",
@@ -104,7 +112,6 @@
             }
         ]
     },
-
     {
         "TeamId": 4,
         "TeamName": "CrochetingYarns",
@@ -137,5 +144,4 @@
             }
         ]
     }
-
 ]
