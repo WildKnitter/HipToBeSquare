@@ -1,47 +1,44 @@
 "use strict";
-//This script contains code to post a new course to a JSON file.
+//This script contains code to post a new team to a JSON file.
 //Author:  Pam Belknap
 
 /*
-Key for understanding how to access the fields in the JSON file:
-objs
-objs.length
-objs[i].CourseId
-objs[i].Title
-objs[i].Category
-objs[i].Location
-objs[i].StartDate
-objs[i].EndDate
-objs[i].Meets
-objs[i].Fee
-objs[i].Students (its own array)
+Key for understanding the fields in the JSON file:
+
+/api/leagues
+/api/teams
+/api/teams/:id
+/api/teams/byleague/:id
+/api/teams/:teamid/members/:memberid
+/api/teams/:id/members
 */
 
 //Ready Load
 $(function() {
-    let categ;
+
+    let orgs;
 
     //Starts the communication to the server
     $.getJSON(
-        "/api/categories",
+        "/api/leagues",
         //This function doesn't necessarily run instantaneously
         function(data) {
-            categ = data;
+            orgs = data;
             //load dropdown lists here (code)
-            for (let i = 0; i < categ.length; i++) {
-                let categoryOption = $("<option>", { text: categ[i].Category, value: categ[i].Category });
-                $("#categoryChoice").append(categoryOption);
+            for (let i = 0; i < orgs.length; i++) {
+                let leagueOption = $("<option>", { text: orgs[i].Name, value: orgs[i].Code });
+                $("#leagueChoice").append(leagueOption);
             } // end of for
         } // end of CALLBACK function
     ); // end of call to $.getJSON      
 
-    $("#btnAddCourse").on("click", addNewCourse);
+    $("#btnAddTeam").on("click", addNewTeam);
     $("#btnCancelAdd").on("click", cancelAdd);
 
 }); // end of Ready Load
 
 //when ADD button is clicked:
-function addNewCourse() {
+function addNewTeam() {
     let errMsgs = validateForm();
     $("#msgDiv").empty();
     if (errMsgs.length > 0) {
@@ -52,48 +49,56 @@ function addNewCourse() {
         $("#msgDiv").html(msg);
         return false;
     }
-    $.post("api/courses", $("#detailsInputForm").serialize(), function(data) {
-        location.href = "details.html?courseid=" + $("#courseId").val();
+    $.post("/api/teams", $("#detailsInputForm").serialize(), function(data) {
+        location.href = "teams.html";
+        //        location.href = "teamdetails.html?teamid=" + data.TeamID;
     }); // end of post
     return false;
-} // end of registerForCourse function
+} // end of registerForTeam function
 
 //Validate the form
 // Note: Need to add the forward slash to the front and back of regular 
 // expressions to make them behave correctly when code is run. 
 function validateForm() {
     let errMsgs = [];
-    let dateReg = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
-    let numReg = /^\d{0,9}(\.\d{0,2})?$/;
-    if ($("#courseId").val().trim() == "") {
-        errMsgs[errMsgs.length] = "Course Number is REQUIRED";
+    let emailReg = /^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$/;
+    let phoneReg = /^\d{3}-\d{3}-\d{4}/;
+    let ageReg = /^[1-9]+[0-9]*$/;
+    if ($("#teamName").val().trim() == "") {
+        errMsgs[errMsgs.length] = "Team Name is REQUIRED";
     }
-    if ($("#title").val().trim() == "") {
-        errMsgs[errMsgs.length] = "Course Name is REQUIRED";
+    if ($("#managerName").val().trim() == "") {
+        errMsgs[errMsgs.length] = "Manager Name is REQUIRED";
     }
-    if ($("#location").val().trim() == "") {
-        errMsgs[errMsgs.length] = "Location is REQUIRED";
+    if ($("#managerPhone").val().trim() == "") {
+        errMsgs[errMsgs.length] = "Manager Phone Number is REQUIRED";
     }
-    if ($("#startDate").val().trim() == "") {
-        errMsgs[errMsgs.length] = "Start Date is REQUIRED";
+    if ($("#managerEmail").val().trim() == "") {
+        errMsgs[errMsgs.length] = "Manager Email Address is REQUIRED";
     }
-    if (dateReg.test($("#startDate").val()) == false) {
-        errMsgs[errMsgs.length] = "Start Date needs to be in mm/dd/yy format!";
+    if ($("#maxTeamMembers").val().trim() == "") {
+        errMsgs[errMsgs.length] = "Maximum Number of Team Members is REQUIRED";
     }
-    if ($("#endDate").val().trim() == "") {
-        errMsgs[errMsgs.length] = "End Date is REQUIRED";
+    if ($("#minMemberAge").val().trim() == "") {
+        errMsgs[errMsgs.length] = "Minimum Member Age is REQUIRED";
     }
-    if (dateReg.test($("#endDate").val()) == false) {
-        errMsgs[errMsgs.length] = "End Date needs to be in mm/dd/yy format!";
+    if ($("#maxMemberAge").val().trim() == "") {
+        errMsgs[errMsgs.length] = "Maximum Member Age is REQUIRED";
     }
-    if ($("#meets").val().trim() == "") {
-        errMsgs[errMsgs.length] = "Day and Time Information is REQUIRED";
+    if (emailReg.test($("#managerEmail").val()) == false) {
+        errMsgs[errMsgs.length] = "Manager Email needs to be the correct format!";
     }
-    if ($("#fee").val().trim() == "") {
-        errMsgs[errMsgs.length] = "Class Fee is REQUIRED";
+    if (phoneReg.test($("#managerPhone").val()) == false) {
+        errMsgs[errMsgs.length] = "Manager Phone Number needs to be the correct format!";
     }
-    if (numReg.test($("#fee").val()) == false) {
-        errMsgs[errMsgs.length] = "Fee is numeric and needs to be in a 9999.99 format!";
+    if (ageReg.test($("#maxTeamMembers").val()) == false) {
+        errMsgs[errMsgs.length] = "Maximum Number of Team Members needs to be an integer!";
+    }
+    if (ageReg.test($("#minMemberAge").val()) == false) {
+        errMsgs[errMsgs.length] = "Minimum Member Age needs to be an integer!";
+    }
+    if (ageReg.test($("#maxMemberAge").val()) == false) {
+        errMsgs[errMsgs.length] = "Maximum Member Age needs to be an integer!";
     }
     return errMsgs;
 } // end of validateForm function
@@ -101,6 +106,5 @@ function validateForm() {
 //when CANCEL button is clicked:
 function cancelAdd() {
     location.reload();
-    $("#msgDiv").html("Action Canceled");
-    location.href = "courses.html";
+    location.href = "teams.html";
 }; // end of Cancel Function

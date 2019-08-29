@@ -70,29 +70,35 @@
                     <option value="zero" selected>Select One</option>
                 </select>
                 <br />
-                <label for="teamType">Knitting or Crocheting?</label>
-                <input id="teamType" name="teamtype" placeholder="Team Type" required>
+                <input type="radio" name="teamtype" id="knitting" value="Knitting">
+                <label for="knitting">Knitting</label>
+                <input type="radio" name="teamtype" id="crocheting" value="Crocheting" checked>
+                <label for="crocheting">Crocheting</label>
                 <br />
                 <label for="managerName">Team Manager Name</label>
                 <input id="managerName" name="managername" placeholder="John Doe" required>
                 <br />
                 <label for="managerPhone">Team Manager Phone Number</label>
-                <input id="managerPhone" name="managerphone" placeholder="860-555-1234" required>
+                <input id="managerPhone" name="managerphone" type="tel" placeholder="860-555-1234" required>
                 <br />
                 <label for="managerEmail">Team Manager Email Address</label>
-                <input id="managerEmail" name="manageremail" placeholder="johndoe@gmail.com" required>
+                <input id="managerEmail" name="manageremail" type="email" placeholder="johndoe@gmail.com" required>
                 <br />
                 <label for="maxTeamMembers">Maximum Team Members</label>
-                <input id="maxTeamMembers" name="maxteammembers" placeholder="10" required>
+                <input id="maxTeamMembers" name="maxteammembers" type="number" placeholder="10" required>
                 <br />
                 <label for="minMemberAge">Minimum Member Age</label>
-                <input id="minMemberAge" name="minmemberage" placeholder="5" required>
+                <input id="minMemberAge" name="minmemberage" type="number" placeholder="5" required>
                 <br />
                 <label for="maxMemberAge">Maximum Member Age</label>
-                <input id="maxMemberAge" name="maxmemberage" placeholder="100" required>
+                <input id="maxMemberAge" name="maxmemberage" type="number" placeholder="100" required>
                 <br />
-                <label for="teamGender">Team Gender</label>
-                <input id="teamGender" name="teamgender" placeholder="Any" required>
+                <input type="radio" name="teamgender" id="male" value="Male">
+                <label for="male">Male</label>
+                <input type="radio" name="teamgender" id="female" value="Female">
+                <label for="female">Female</label>
+                <input type="radio" name="teamgender" id="any" value="Any" checked>
+                <label for="any">Any</label>
             </div>
         </div>
     </form>

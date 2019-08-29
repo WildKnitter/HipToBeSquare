@@ -143,5 +143,33 @@
                 "Phone": "860-555-2233"
             }
         ]
+    },
+    {
+        "TeamId": 100,
+        "TeamName": "Wild Crocheters",
+        "League": "SeniorCenter",
+        "TeamType": "Crocheting",
+        "ManagerName": "Meaghan Belknap",
+        "ManagerPhone": "860-555-2463",
+        "ManagerEmail": "meaghanb@gmail.com",
+        "MaxTeamMembers": 10,
+        "MinMemberAge": 10,
+        "MaxMemberAge": 100,
+        "TeamGender": "Any",
+        "Members": []
+    },
+    {
+        "TeamId": 102,
+        "TeamName": "Wild Knitters",
+        "League": "DayCare",
+        "TeamType": "Knitting",
+        "ManagerName": "Janet Smith",
+        "ManagerPhone": "860-555-1111",
+        "ManagerEmail": "jsmith@yahoo.com",
+        "MaxTeamMembers": 15,
+        "MinMemberAge": 10,
+        "MaxMemberAge": 100,
+        "TeamGender": "Female",
+        "Members": []
     }
 ]
