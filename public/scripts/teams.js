@@ -53,7 +53,7 @@ $(function() {
                 function(data) {
                     objs = data;
                     $("#teamTableHead").empty();
-                    let markupHeader = "<tr><th>Organization</th><th>Team Type</th><th>Team ID</th><th>Team Name</th><th>View/Edit</th></tr>";
+                    let markupHeader = "<tr><th>Organization Type</th><th>Team Type</th><th>Team ID</th><th>Team Name</th><th>View/Edit</th></tr>";
                     $("#teamTableHead").append(markupHeader);
                     $("#teamTableHead").css("font-weight", "bold");
                     $("#teamTableBody").empty();
@@ -78,7 +78,7 @@ $(function() {
                     objs = data;
                     let chosenCraft = $("#teamType").val();
                     $("#teamTableHead").empty();
-                    let markupHeader = "<tr><th>Organization</th><th>Team Type</th><th>Team ID</th><th>Team Name</th><th>View/Edit</th></tr>";
+                    let markupHeader = "<tr><th>Organization Type</th><th>Team Type</th><th>Team ID</th><th>Team Name</th><th>View/Edit</th></tr>";
                     $("#teamTableHead").append(markupHeader);
                     $("#teamTableHead").css("font-weight", "bold");
                     $("#teamTableBody").empty();
@@ -104,7 +104,7 @@ $(function() {
                 function(data) {
                     objs = data;
                     $("#teamTableHead").empty();
-                    let markupHeader = "<tr><th>Organization</th><th>Team Type</th><th>Team ID</th><th>Team Name</th><th>View/Edit</th></tr>";
+                    let markupHeader = "<tr><th>Organization Type</th><th>Team Type</th><th>Team ID</th><th>Team Name</th><th>View/Edit</th></tr>";
                     $("#teamTableHead").append(markupHeader);
                     $("#teamTableHead").css("font-weight", "bold");
                     $("#teamTableBody").empty();
