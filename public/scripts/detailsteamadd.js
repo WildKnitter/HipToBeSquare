@@ -49,9 +49,11 @@ function addNewTeam() {
         $("#msgDiv").html(msg);
         return false;
     }
+    //NOTE: the Posting of the new team now includes the TeamId so that the user will
+    //be directed back to their new team.
     $.post("/api/teams", $("#detailsInputForm").serialize(), function(data) {
-        location.href = "teams.html";
-        //        location.href = "teamdetails.html?teamid=" + data.TeamID;
+        data = JSON.parse(data);
+        location.href = "teamdetails.html?teamid=" + data.TeamId;
     }); // end of post
     return false;
 } // end of registerForTeam function
