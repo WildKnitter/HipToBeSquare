@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Page to remove a member's registration for a team and have the results post to a JSON file.-->
+<!--Page to dynamically create a table to edit details as selected from a JSON file.-->
 
 <head>
     <link rel="icon" href="images/favicon.ico" />
@@ -41,41 +41,21 @@
     <div class="container">
         <header>
             <h1 class="display-3 regularHeader">Hip to be Square!</h1>
-            <h2 class="regularSubHeader">Remove Team Member Registration</h2>
+            <h2 class="regularSubHeader">Edit Team Details</h2>
         </header>
     </div>
     <!--container end -->
 
-    <!--Unregister Form-->
+    <!--Edit and Cancel Buttons -->
     <div class="row">
-        <div class="col-md-8 offset-md-4">
-            <form id="unRegisterForm" name="unRegisterForm" method="POST" action="index.html">
-                <label for="teamid">Team ID</label>
-                <input id="teamid" name="teamid" readonly>
-                <br />
-                <label for="memberid">Member ID</label>
-                <input id="memberid" name="memberid" readonly>
-                <br />
-                <label for="membername">Member Name</label>
-                <input id="membername" name="membername" readonly>
-                <br />
-                <label for="contactname">Contact Name (If Minor)</label>
-                <input id="contactname" name="contactname" readonly>
-                <br />
-                <label for="email">Email Address</label>
-                <input id="email" name="email" readonly>
-                <br />
-                <label for="phone">Phone Number</label>
-                <input id="phone" name="phone" readonly>
-                <br />
-                <label for="age">Member Age</label>
-                <input id="age" name="age" readonly>
-                <br />
-                <label for="gender">Gender</label>
-                <input id="gender" name="gender" readonly>
-            </form>
+        <div class="col-lg-4 offset-lg-4 justifycenter">
+            <div id="updateCancelButtons" class="container">
+                <input class="btn btn-md btn-success" id="btnUpdateTeam" name="btnUpdateTeam" type="button" value="Update">
+                <input class="btn btn-md btn-secondary" id="btnCancelUpdate" name="btnCancelUpdate" type="button" value="Cancel">
+            </div>
         </div>
     </div>
+    <!--End Edit and Cancel Buttons -->
 
     <!--Message Div for updates-->
     <div class="row">
@@ -83,16 +63,20 @@
             <div id="msgDiv"></div>
         </div>
     </div>
-    <!--Buttons-->
-    <div class="row">
-        <div class="col-md-4 offset-md-5">
-            <div id="unRegisterButtons" class="container">
-                <input class="btn btn-md btn-danger" id="btnUnRegisterForTeam" name="btnUnRegisterForTeam" type="button" value="UNREGISTER">
-                <input class="btn btn-md btn-secondary" id="btnCancel" name="btnCancel" type="button" value="Cancel">
-            </div>
-        </div>
-    </div>
 
+    <div class="row">
+        <div class="col-md-4 offset-md-4 formContainer">
+            <!-- Details Form to Edit -->
+            <form id="detailsFormEdit" name="detailsFormEdit" method="post" action="/api/teams">
+                <div id="detailsFormCreate">
+                </div>
+                <!-- End of detailsFormCreate -->
+            </form>
+            <!-- End of Details Form to Edit -->
+        </div>
+        <!-- End Classes for Columns -->
+    </div>
+    <!-- End Row -->
 
     <footer class="container">
         <p>&copy; Pam Belknap 2019</p>
@@ -103,7 +87,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!--External js script-->
-    <script src="scripts/unregister.js"></script>
+    <script src="scripts/detailsteamedit.js"></script>
 </body>
 
 </html>

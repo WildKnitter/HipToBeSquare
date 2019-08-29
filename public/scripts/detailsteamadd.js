@@ -56,7 +56,7 @@ function addNewTeam() {
         location.href = "teamdetails.html?teamid=" + data.TeamId;
     }); // end of post
     return false;
-} // end of registerForTeam function
+} // end of addNewTeam function
 
 //Validate the form
 // Note: Need to add the forward slash to the front and back of regular 

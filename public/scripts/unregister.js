@@ -1,76 +1,63 @@
 "use strict";
-//This script contains code to post student registrations for courses to a JSON file.
+//This script contains code to unregister a team member and post it to a JSON file.
 //Author:  Pam Belknap
 
 /*
-Key for understanding how to access the fields in the JSON file:
-objs
-objs.length
-objs[i].CourseId
-objs[i].Title
-objs[i].Category
-objs[i].Location
-objs[i].StartDate
-objs[i].EndDate
-objs[i].Meets
-objs[i].Fee
-objs[i].Students (its own array)
-"Students": [
-            {
-                "StudentName": "John Doe",
-                "Email": "johndoe@cox.net"
-            }
-        ]
+Key for understanding the fields in the JSON file:
+
+/api/leagues
+/api/teams
+/api/teams/:id
+/api/teams/byleague/:id
+/api/teams/:teamid/members/:memberid
+/api/teams/:id/members
 */
 
 //Ready Load
-// decodeURI used to decode the url string to get the course name, student name, and email address.
+// decodeURI used to decode the url string to get the team member information.
 $(function() {
     let urlParams = new URLSearchParams(location.search);
-    let courseid = urlParams.get("courseid");
-    let studentname = urlParams.get("studentname");
+    let teamid = urlParams.get("teamid");
+    let memberid = urlParams.get("memberid");
+    let membername = urlParams.get("membername");
     let email = urlParams.get("email");
-    $("#courseid").val(courseid);
-    $("#studentname").val(studentname);
+    let contactname = urlParams.get("contactname");
+    let age = urlParams.get("age");
+    let gender = urlParams.get("gender");
+    let phone = urlParams.get("phone");
+    $("#teamid").val(teamid);
+    $("#memberid").val(memberid);
+    $("#membername").val(membername);
     $("#email").val(email);
-    $("#btnUnRegisterForCourse").on("click", unRegisterForCourse);
-    $("#btnCancel").on("click", cancelUpdates);
+    $("#contactname").val(contactname);
+    $("#age").val(age);
+    $("#gender").val(gender);
+    $("#phone").val(phone);
 
+    $("#btnUnRegisterForTeam").on("click", unRegisterForTeam);
+    $("#btnCancel").on("click", cancelUpdates);
 }); // end of Ready Load
 
 //when ADD button is clicked:
-function unRegisterForCourse() {
-    let errMsgs = validateForm();
-    $("#msgDiv").empty();
-    if (errMsgs.length > 0) {
-        let msg = "";
-        for (let i = 0; i < errMsgs.length; i++) {
-            msg = msg + errMsgs[i] + "<br>"
-        }
-        $("#msgDiv").html(msg);
-        return false;
-    }
-    $.post("api/unregister", $("#unRegisterForm").serialize(), function(data) {
-        location.href = "details.html?courseid=" + $("#courseid").val();
-    }); // end of post
+function unRegisterForTeam() {
+    alert("Are you sure you wish to delete this member?");
+    $.ajax({
+            url: "/api/teams/" + $("#teamid").val() + "/members/" + $("#memberid").val(),
+            type: "DELETE",
+            data: $("#unRegisterForm").serialize()
+        }) // end of AJAX
+        .done(function(data, status, xhr) {
+            alert("Team Member Deleted!");
+            location.href = "teamdetails.html?teamid=" + $("#teamid").val();
+        })
+        .fail(function() {
+            alert("FAIL: Team Member NOT Deleted!");
+        });
     return false;
-} // end of registerForCourse function
-
-//Validate the form
-function validateForm() {
-    let errMsgs = [];
-    if ($("#studentname").val().trim() == "") {
-        errMsgs[errMsgs.length] = "Name is REQUIRED";
-    }
-    if ($("#email").val().trim() == "") {
-        errMsgs[errMsgs.length] = "Email Address is REQUIRED";
-    }
-    return errMsgs;
-} // end of validateForm function
+} // end of registerForteam function
 
 //when CANCEL button is clicked:
 function cancelUpdates() {
     location.reload();
-    $("#msgDiv").html("Action Canceled");
-    location.href = "details.html?courseid=" + $("#courseid").val();
+    location.href = "teamdetails.html?teamid=" + $("#teamid").val();
 }; // end of Cancel Function

@@ -70,7 +70,15 @@ $(function() {
                                 $("#memberTableHead").css("font-weight", "bold");
                                 $("#memberTableBody").empty();
                                 for (let j = 0; j < objs[i].Members.length; j++) {
-                                    let urlunreg = "unregister.html?teamid=" + chosenDetail + "&membername=" + objs[i].Members[j].MemberName + "&memberid=" + objs[i].Members[j].MemberId + "&email=" + objs[i].Members[j].Email;
+                                    // urlunreg creates a url with information contatenated to bring into the unregister page.
+                                    let urlunreg = "unregister.html?teamid=" + chosenDetail +
+                                        "&membername=" + objs[i].Members[j].MemberName +
+                                        "&memberid=" + objs[i].Members[j].MemberId +
+                                        "&email=" + objs[i].Members[j].Email +
+                                        "&contactname=" + objs[i].Members[j].ContactName +
+                                        "&age=" + objs[i].Members[j].Age +
+                                        "&gender=" + objs[i].Members[j].Gender +
+                                        "&phone=" + objs[i].Members[j].Phone;
                                     //encode URI to be able to pass the string with spaces, email, etc.
                                     let encodedURI = encodeURI(urlunreg);
                                     let markupBody9 = "<tr><td>" + objs[i].Members[j].MemberName + "</td><td>" + objs[i].Members[j].MemberId + "</td><td>" + objs[i].Members[j].Email + "</td><td><a class='mr-2' title='Unregister' href=" + encodedURI + "><i class='fas fa-trash-alt fa-lg' aria-hidden='true'></i></a></tr>";

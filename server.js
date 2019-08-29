@@ -304,7 +304,7 @@ app.post("/api/teams", urlencodedParser, function(req, res) {
     //NOTE:  instead of returning just the status code, I am returning 
     //the team stringified, so that we can unstringify it to capture the TeamId to use
     //to bring the user to the teamdetails.html page with their new team.   
-  
+
     res.end(JSON.stringify(team));
 })
 
@@ -555,7 +555,7 @@ app.delete("/api/teams/:teamid/members/:memberid", urlencodedParser, function(re
     console.log("Found team!");
 
     // find existing member on the team
-    let foundAt = team.Members.findIndex(m => m.MemberId == req.body.memberid);
+    let foundAt = team.Members.findIndex(m => m.MemberId == memberId);
 
     let match = null;
     // delete the member if found
@@ -573,7 +573,6 @@ app.delete("/api/teams/:teamid/members/:memberid", urlencodedParser, function(re
     // Note:  even if we didn't find them, send a 200 back because they are gone
     res.status(200).send();
 })
-
 
 // ------------------------------------------------------------------------------
 // SITE SET-UP
