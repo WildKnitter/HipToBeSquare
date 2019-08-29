@@ -299,7 +299,12 @@ app.post("/api/teams", urlencodedParser, function(req, res) {
 
     //console.log("New team added: ");
     //logOneTeam(team);
-    res.status(200).send();
+    //res.status(200).send();
+
+    //NOTE:  instead of returning just the status code, I am returning 
+    //the team stringified, so that we can unstringify it to capture the TeamId to use
+    //to bring the user to the teamdetails.html page with their new team.   
+    res.end(JSON.stringify(team));
 })
 
 // EDIT A TEAM
