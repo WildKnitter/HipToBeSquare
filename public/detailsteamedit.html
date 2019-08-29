@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Page to dynamically create a table to edit details as selected from a JSON file.-->
+
+<head>
+    <link rel="icon" href="images/favicon.ico" />
+    <title>Hip To Be Square</title>
+    <!--JavaScript sheet-->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
+</head>
+
+<body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Hip to be Square</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:8081/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="teams.html">Teams</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--End Navigation Bar-->
+
+    <!--Heading-->
+    <div class="container">
+        <header>
+            <h1 class="display-3 regularHeader">Hip to be Square!</h1>
+            <h2 class="regularSubHeader">Edit Team Details</h2>
+        </header>
+    </div>
+    <!--container end -->
+
+    <!--Edit and Cancel Buttons -->
+    <div class="row">
+        <div class="col-lg-4 offset-lg-4 justifycenter">
+            <div id="updateCancelButtons" class="container">
+                <input class="btn btn-md btn-success" id="btnUpdateTeam" name="btnUpdateTeam" type="button" value="Update">
+                <input class="btn btn-md btn-secondary" id="btnCancelUpdate" name="btnCancelUpdate" type="button" value="Cancel">
+            </div>
+        </div>
+    </div>
+    <!--End Edit and Cancel Buttons -->
+
+    <!--Message Div for updates-->
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div id="msgDiv"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 offset-md-4 formContainer">
+            <!-- Details Form to Edit -->
+            <form id="detailsFormEdit" name="detailsFormEdit" method="post" action="/api/teams">
+                <div id="detailsFormCreate">
+                </div>
+                <!-- End of detailsFormCreate -->
+            </form>
+            <!-- End of Details Form to Edit -->
+        </div>
+        <!-- End Classes for Columns -->
+    </div>
+    <!-- End Row -->
+
+    <footer class="container">
+        <p>&copy; Pam Belknap 2019</p>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--External js script-->
+    <script src="scripts/detailsteamedit.js"></script>
+</body>
+
+</html>
