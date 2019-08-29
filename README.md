@@ -1,6 +1,8 @@
 # Capstone Project - Hip to be Square!
 Our final project! A site to sign up teams and team members for a crafting charity blitz!  This site uses a Node.js/Express back end and REST API to help manage data services.
 
+![IndexPage](public/images/sitescreenshot.jpg?raw=true "IndexPage")
+
 ## Purpose and goals of this site
 - To display the leagues, teams, and members for a charity knitting and crocheting drive.
 - To sign up teams and members for the drive.
