@@ -35,26 +35,35 @@ $(function() {
                                 let markupBody0 = "<div class='form-group'><label for='teamId'>Team ID:</label><input type='text' class='form-control' id='teamId' name='teamid' value = '" + objs[i].TeamId + "' readonly></div>";
                                 $("#detailsFormCreate").append(markupBody0);
 
-                                let markupBody1 = "<div class='form-group'><label for='title'>Title:</label><input type='text' class='form-control' id='title' name='title' value = '" + objs[i].Title + "' ></div>";
+                                let markupBody1 = "<div class='form-group'><label for='teamName'>Team Name:</label><input type='text' class='form-control' id='teamName' name='teamname' value = '" + objs[i].TeamName + "' ></div>";
                                 $("#detailsFormCreate").append(markupBody1);
 
-                                let markupBody2 = "<div class='form-group'><label for='category'>Category:</label><input type='text' class='form-control' id='category' name='category' value = '" + objs[i].Category + "' readonly></div>";
+                                let markupBody2 = "<div class='form-group'><label for='league'>Organization:</label><input type='text' class='form-control' id='league' name='leaguecode' value = '" + objs[i].League + "' readonly></div>";
                                 $("#detailsFormCreate").append(markupBody2);
 
-                                let markupBody3 = "<div class='form-group'><label for='location'>Location:</label><input type='text' class='form-control' id='location' name='location' value = '" + objs[i].Location + "' ></div>";
+                                let markupBody3 = "<div class='form-group'><label for='teamType'>Team Type:</label><input type='text' class='form-control' id='teamType' name='teamtype' value = '" + objs[i].TeamType + "' ></div>";
                                 $("#detailsFormCreate").append(markupBody3);
 
-                                let markupBody4 = "<div class='form-group'><label for='startDate'>Start Date:</label><input type='text' class='form-control' id='startDate' name='startdate' value = '" + objs[i].StartDate + "' ></div>";
+                                let markupBody4 = "<div class='form-group'><label for='managerName'>Team Manager Name:</label><input type='text' class='form-control' id='managerName' name='managername' value = '" + objs[i].ManagerName + "' ></div>";
                                 $("#detailsFormCreate").append(markupBody4);
 
-                                let markupBody5 = "<div class='form-group'><label for='endDate'>End Date:</label><input type='text' class='form-control' id='endDate' name='enddate' value = '" + objs[i].EndDate + "' ></div>";
+                                let markupBody5 = "<div class='form-group'><label for='managerPhone'>Manager Phone Number:</label><input type='tel' class='form-control' id='managerPhone' name='managerphone' value = '" + objs[i].ManagerPhone + "' ></div>";
                                 $("#detailsFormCreate").append(markupBody5);
 
-                                let markupBody6 = "<div class='form-group'><label for='meets'>Days and Time:</label><input type='text' class='form-control' id='meets' name='meets' value = '" + objs[i].Meets + "' ></div>";
+                                let markupBody6 = "<div class='form-group'><label for='managerEmail'>Manager Email Address:</label><input type='email' class='form-control' id='managerEmail' name='manageremail' value = '" + objs[i].ManagerEmail + "' ></div>";
                                 $("#detailsFormCreate").append(markupBody6);
 
-                                let markupBody7 = "<div class='form-group'><label for='fee'>Class Fee:</label><input type='text' class='form-control' id='fee' name='fee' value = '" + objs[i].Fee + "' ></div>";
+                                let markupBody7 = "<div class='form-group'><label for='maxTeamMembers'>Maximum Members to a Team:</label><input type='number' class='form-control' id='maxTeamMembers' name='maxteammembers' value = '" + objs[i].MaxTeamMembers + "' ></div>";
                                 $("#detailsFormCreate").append(markupBody7);
+
+                                let markupBody8 = "<div class='form-group'><label for='minMemberAge'>Minimum Member Age:</label><input type='number' class='form-control' id='minMemberAge' name='minmemberage' value = '" + objs[i].MinMemberAge + "' ></div>";
+                                $("#detailsFormCreate").append(markupBody8);
+
+                                let markupBody9 = "<div class='form-group'><label for='maxMemberAge'>Maximum Member Age:</label><input type='number' class='form-control' id='maxMemberAge' name='maxmemberage' value = '" + objs[i].MaxMemberAge + "' ></div>";
+                                $("#detailsFormCreate").append(markupBody9);
+
+                                let markupBody10 = "<div class='form-group'><label for='teamGender'>Team Gender:</label><input type='text' class='form-control' id='teamGender' name='teamgender' value = '" + objs[i].TeamGender + "' ></div>";
+                                $("#detailsFormCreate").append(markupBody10);
                             } // end of if for table load
                         } // end of for (table)
                     } // end of createDetailTable function
@@ -85,12 +94,12 @@ $(function() {
                         method: "PUT", // method is any HTTP method
                         success: function() {
                                 alert("Updated!");
-                                location.href = "details.html?teamid=" + $("#teamId").val();
+                                location.href = "teamdetails.html?teamid=" + $("#teamId").val();
                             } // end of success function
                     }) // end of ajax PUT
                     .fail(function() {
                         alert("Didn't Update!");
-                        location.href = "teams.html";
+                        location.href = "teamdetails.html?teamid=" + $("#teamId").val();
                     }); // end of fail function
             } // end of EDIT A Team
         } // end of updateTeam function
@@ -100,44 +109,64 @@ $(function() {
         // expressions to make them behave correctly when code is run. 
         function validateForm() {
             let errMsgs = [];
-            let dateReg = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
-            let numReg = /^\d{0,9}(\.\d{0,2})?$/;
-            if ($("#title").val().trim() == "") {
+            let emailReg = /^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$/;
+            let phoneReg = /^\d{3}-\d{3}-\d{4}/;
+            let ageReg = /^[1-9]+[0-9]*$/;
+            if ($("#teamName").val().trim() == "") {
                 errMsgs[errMsgs.length] = "Team Name is REQUIRED";
             }
-            if ($("#location").val().trim() == "") {
-                errMsgs[errMsgs.length] = "Location is REQUIRED";
+            if ($("#teamType").val().trim() == "") {
+                errMsgs[errMsgs.length] = "Team Craft Type is REQUIRED";
             }
-            if ($("#startDate").val().trim() == "") {
-                errMsgs[errMsgs.length] = "Start Date is REQUIRED";
+            if ($("#managerName").val().trim() == "") {
+                errMsgs[errMsgs.length] = "Manager Name is REQUIRED";
             }
-            if (dateReg.test($("#startDate").val()) == false) {
-                errMsgs[errMsgs.length] = "Start Date needs to be in mm/dd/yy format!";
+            if ($("#managerPhone").val().trim() == "") {
+                errMsgs[errMsgs.length] = "Manager Phone Number is REQUIRED";
             }
-            if ($("#endDate").val().trim() == "") {
-                errMsgs[errMsgs.length] = "End Date is REQUIRED";
+            if ($("#managerEmail").val().trim() == "") {
+                errMsgs[errMsgs.length] = "Manager Email Address is REQUIRED";
             }
-            if (dateReg.test($("#endDate").val()) == false) {
-                errMsgs[errMsgs.length] = "End Date needs to be in mm/dd/yy format!";
+            if ($("#maxTeamMembers").val().trim() == "") {
+                errMsgs[errMsgs.length] = "Maximum Number of Team Members is REQUIRED";
             }
-            if ($("#meets").val().trim() == "") {
-                errMsgs[errMsgs.length] = "Day and Time Information is REQUIRED";
+            if ($("#minMemberAge").val().trim() == "") {
+                errMsgs[errMsgs.length] = "Minimum Member Age is REQUIRED";
             }
-            if ($("#fee").val().trim() == "") {
-                errMsgs[errMsgs.length] = "Class Fee is REQUIRED";
+            if ($("#maxMemberAge").val().trim() == "") {
+                errMsgs[errMsgs.length] = "Maximum Member Age is REQUIRED";
             }
-            if (numReg.test($("#fee").val()) == false) {
-                errMsgs[errMsgs.length] = "Fee is numeric and needs to be in a 9999.99 format!";
+            if ($("#teamGender").val().trim() == "") {
+                errMsgs[errMsgs.length] = "Team Gender is REQUIRED";
             }
-
+            if (($("#teamType").val() != "Knitting") && ($("#teamType").val() != "Crocheting")) {
+                errMsgs[errMsgs.length] = "Team Type should be Knitting or Crocheting";
+            }
+            if (emailReg.test($("#managerEmail").val()) == false) {
+                errMsgs[errMsgs.length] = "Manager Email needs to be the correct format!";
+            }
+            if (phoneReg.test($("#managerPhone").val()) == false) {
+                errMsgs[errMsgs.length] = "Manager Phone Number needs to be the correct format!";
+            }
+            if (ageReg.test($("#maxTeamMembers").val()) == false) {
+                errMsgs[errMsgs.length] = "Maximum Number of Team Members needs to be an integer!";
+            }
+            if (ageReg.test($("#minMemberAge").val()) == false) {
+                errMsgs[errMsgs.length] = "Minimum Member Age needs to be an integer!";
+            }
+            if (ageReg.test($("#maxMemberAge").val()) == false) {
+                errMsgs[errMsgs.length] = "Maximum Member Age needs to be an integer!";
+            }
+            if (($("#teamGender").val() != "Male") && ($("#teamGender").val() != "Female") && ($("#teamGender").val() != "Any")) {
+                errMsgs[errMsgs.length] = "Team Gender should be Male, Female, or Any";
+            }
             return errMsgs;
         } // end of validateForm function
 
         //when CANCEL button is clicked:
         function cancelUpdates() {
             location.reload();
-            $("#msgDiv").html("Action Canceled");
-            location.href = "teams.html";
+            location.href = "teamdetails.html?teamid=" + $("#teamId").val();
         }; // end of Cancel Function
 
     }) // end of READY EVENT HANDLER
