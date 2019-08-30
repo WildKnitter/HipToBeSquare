@@ -61,7 +61,7 @@ $(function() {
                                 $("#teamTableBody").append(markupBody11);
                                 if (objs[i].Members.length == 0) {
                                     $("#memberCnt").html("No Members Registered");
-                                    $("#membersTable").hide();
+                                    $("#memberTable").hide();
                                 } else {
                                     $("#memberCnt").html(objs[i].Members.length);
                                 }

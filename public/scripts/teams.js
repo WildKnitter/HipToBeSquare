@@ -59,7 +59,7 @@ $(function() {
                     $("#teamTableBody").empty();
                     for (let i = 0; i < objs.length; i++) {
                         let url = "teamdetails.html?teamid=" + objs[i].TeamId;
-                        let urledit = "teamdetailsedit.html?teamid=" + objs[i].TeamId;
+                        let urledit = "detailsteamedit.html?teamid=" + objs[i].TeamId;
                         let markupBody = "<tr><td>" + objs[i].League + "</td><td>" + objs[i].TeamType + "</td><td>" + objs[i].TeamId + "</td><td>" + objs[i].TeamName + "</td><td><a class='mr-2' title='View' href=" + url + "><i class='fas fa-binoculars fa-lg' aria-hidden='true'></i></a><a class='edit mr-2' title='Edit' href=" + urledit + "><i class='fa fa-pencil-alt fa-lg' aria-hidden='true'></i></a></td></tr>";
                         $("#teamTableBody").append(markupBody);
                     } // end of for
@@ -85,8 +85,14 @@ $(function() {
                     for (let i = 0; i < objs.length; i++) {
                         if (chosenCraft == objs[i].TeamType) {
                             let url = "teamdetails.html?teamid=" + objs[i].TeamId;
-                            let urledit = "teamdetailsedit.html?teamid=" + objs[i].TeamId;
-                            let markupBody = "<tr><td>" + objs[i].League + "</td><td>" + objs[i].TeamType + "</td><td>" + objs[i].TeamId + "</td><td>" + objs[i].TeamName + "</td><td><a class='mr-2' title='View' href=" + url + "><i class='fas fa-binoculars fa-lg' aria-hidden='true'></i></a><a class='edit mr-2' title='Edit' href=" + urledit + "><i class='fa fa-pencil-alt fa-lg' aria-hidden='true'></i></a></td></tr>";
+                            let urledit = "detailsteamedit.html?teamid=" + objs[i].TeamId;
+                            let markupBody = "<tr><td>" + objs[i].League +
+                                "</td><td>" + objs[i].TeamType +
+                                "</td><td>" + objs[i].TeamId +
+                                "</td><td>" + objs[i].TeamName +
+                                "</td><td><a class='mr-2' title='View' href=" +
+                                url + "><i class='fas fa-binoculars fa-lg' aria-hidden='true'></i></a><a class='edit mr-2' title='Edit' href=" +
+                                urledit + "><i class='fa fa-pencil-alt fa-lg' aria-hidden='true'></i></a></td></tr>";
                             $("#teamTableBody").append(markupBody);
                         } // end of if statement
                     } // end of for
