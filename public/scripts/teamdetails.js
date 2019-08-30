@@ -66,7 +66,7 @@ $(function() {
                                     $("#memberCnt").html(objs[i].Members.length);
                                 }
                                 $("#memberTableHead").empty();
-                                let markupHeader = "<tr><th>Member Name</th><th>Member Id</th><th>Member Email</th><th>Unregister</th></tr>";
+                                let markupHeader = "<tr><th>Member Name</th><th>Member Id</th><th>Member Email</th><th>Edit/Unregister</th></tr>";
                                 $("#memberTableHead").append(markupHeader);
                                 $("#memberTableHead").css("font-weight", "bold");
                                 $("#memberTableBody").empty();
@@ -82,7 +82,22 @@ $(function() {
                                         "&phone=" + objs[i].Members[j].Phone;
                                     //encode URI to be able to pass the string with spaces, email, etc.
                                     let encodedURI = encodeURI(urlunreg);
-                                    let markupBody9 = "<tr><td>" + objs[i].Members[j].MemberName + "</td><td>" + objs[i].Members[j].MemberId + "</td><td>" + objs[i].Members[j].Email + "</td><td><a class='mr-2' title='Unregister' href=" + encodedURI + "><i class='fas fa-trash-alt fa-lg' aria-hidden='true'></i></a></tr>";
+                                    // urlMemEdit creates a url with information contatenated to bring into the unregister page.
+                                    let urlMemEdit = "detailsmemberedit.html?teamid=" + chosenDetail +
+                                        "&membername=" + objs[i].Members[j].MemberName +
+                                        "&memberid=" + objs[i].Members[j].MemberId +
+                                        "&email=" + objs[i].Members[j].Email +
+                                        "&contactname=" + objs[i].Members[j].ContactName +
+                                        "&age=" + objs[i].Members[j].Age +
+                                        "&gender=" + objs[i].Members[j].Gender +
+                                        "&phone=" + objs[i].Members[j].Phone;
+                                    //encode URI to be able to pass the string with spaces, email, etc.
+                                    let encodedEditURI = encodeURI(urlMemEdit);
+                                    let markupBody9 = "<tr><td>" + objs[i].Members[j].MemberName + "</td><td>" +
+                                        objs[i].Members[j].MemberId + "</td><td>" +
+                                        objs[i].Members[j].Email + "</td><td><a class='edit mr-2' title='Edit' href=" +
+                                        encodedEditURI + "><i class='fa fa-pencil-alt fa-lg' aria-hidden='true'></i></a><a class='mr-2' title='Unregister' href=" +
+                                        encodedURI + "><i class='fas fa-trash-alt fa-lg' aria-hidden='true'></i></a></tr>";
                                     $("#memberTableBody").append(markupBody9);
                                 } // end of if for member table load
                             } // end of if for table load
