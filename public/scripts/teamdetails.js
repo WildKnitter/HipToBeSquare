@@ -30,6 +30,7 @@ $(function() {
                         let urlParams = new URLSearchParams(location.search);
                         let chosenDetail = urlParams.get("teamid");
                         let url = "register.html?teamid=" + chosenDetail;
+                        let urledit = "detailsteamedit.html?teamid=" + chosenDetail;
 
                         $("#teamTableBody").empty();
                         for (let i = 0; i < objs.length; i++) {
@@ -91,9 +92,19 @@ $(function() {
                         // when the REGISTER button is clicked, the url created in 
                         // the function createDetailTable sends the user to the
                         // registration page.
+                        $("#btnEditTeamDetails").on("click", editTeamDetails);
+                        // when the Edit Team Details button is clicked, the urledit created in 
+                        // the function createDetailTable sends the user to the
+                        // detailsteamedit page.
+
                         function registerForTeam() {
                             location.href = url;
                         } // end of registerForCourse Function
+
+                        function editTeamDetails() {
+                            location.href = urledit;
+                        } // end of registerForCourse Function
+
                     } // end of function
                 } // end of function(data)
             ) // end of .getJSON
