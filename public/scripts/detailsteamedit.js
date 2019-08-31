@@ -20,6 +20,7 @@ $(function() {
         let chosenDetail = urlParams.get("teamid");
 
         //Starts the communication to the server
+        //This API gets a particular team by ID, using /api/teams/:id
         $.getJSON(
                 "/api/teams/" + chosenDetail,
                 //This function doesn't necessarily run instantaneously
@@ -63,7 +64,6 @@ $(function() {
 
                         let markupBody10 = "<div class='form-group'><label for='teamGender'>Team Gender:</label><input type='text' class='form-control' id='teamGender' name='teamgender' value = '" + obj.TeamGender + "' ></div>";
                         $("#detailsFormCreate").append(markupBody10);
-
 
                         //Member Count
                         if (obj.Members.length == 0) {
@@ -128,6 +128,9 @@ $(function() {
         function validateForm() {
             let errMsgs = [];
             let highAge = highestTeamAge();
+            let lowAge = lowestTeamAge();
+            let maleCheck = maleTeamMembers();
+            let femaleCheck = femaleTeamMembers();
             let emailReg = /^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$/;
             let phoneReg = /^\d{3}-\d{3}-\d{4}/;
             let ageReg = /^(0|(\+)?[1-9]{1}[0-9]{0,8}|(\+)?[1-3]{1}[0-9]{1,9}|(\+)?[4]{1}([0-1]{1}[0-9]{8}|[2]{1}([0-8]{1}[0-9]{7}|[9]{1}([0-3]{1}[0-9]{6}|[4]{1}([0-8]{1}[0-9]{5}|[9]{1}([0-5]{1}[0-9]{4}|[6]{1}([0-6]{1}[0-9]{3}|[7]{1}([0-1]{1}[0-9]{2}|[2]{1}([0-8]{1}[0-9]{1}|[9]{1}[0-5]{1})))))))))$/;
@@ -180,11 +183,20 @@ $(function() {
             if (ageReg.test($("#maxMemberAge").val()) == false) {
                 errMsgs[errMsgs.length] = "Maximum Member Age needs to be an integer!";
             }
+            if ($("#minMemberAge").val() > lowAge) {
+                errMsgs[errMsgs.length] = "Minimum age is greater than current member on team!";
+            }
             if ($("#maxMemberAge").val() < highAge) {
                 errMsgs[errMsgs.length] = "Maximum age is less than current member on team!";
             }
             if (($("#teamGender").val() != "Male") && ($("#teamGender").val() != "Female") && ($("#teamGender").val() != "Any")) {
                 errMsgs[errMsgs.length] = "Team Gender should be Male, Female, or Any";
+            }
+            if (($("#teamGender").val() == "Male") && (femaleCheck == "Female")) {
+                errMsgs[errMsgs.length] = "There is a Female member on the team.";
+            }
+            if (($("#teamGender").val() == "Female") && (maleCheck == "Male")) {
+                errMsgs[errMsgs.length] = "There is a Male member on the team.";
             }
             return errMsgs;
         } // end of validateForm function
@@ -196,6 +208,33 @@ $(function() {
                     highAge = obj.Members[j].Age;
             };
             return highAge;
+        }
+
+        function lowestTeamAge() {
+            let lowAge = 1000;
+            for (let j = 0; j < obj.Members.length; j++) {
+                if (obj.Members[j].Age < lowAge)
+                    lowAge = obj.Members[j].Age;
+            };
+            return lowAge;
+        }
+
+        function maleTeamMembers() {
+            let maleCheck = "Female";
+            for (let j = 0; j < obj.Members.length; j++) {
+                if (obj.Members[j].Gender == "Male")
+                    maleCheck = obj.Members[j].Gender;
+            };
+            return maleCheck;
+        }
+
+        function femaleTeamMembers() {
+            let femaleCheck = "Male";
+            for (let j = 0; j < obj.Members.length; j++) {
+                if (obj.Members[j].Gender == "Female")
+                    femaleCheck = obj.Members[j].Gender;
+            };
+            return femaleCheck;
         }
 
         //when CANCEL button is clicked:
