@@ -31,7 +31,12 @@ $(function() {
 
                     //This function dynamically creates the team table.
                     function createDetailTable() {
-                        let url = "register.html?teamid=" + chosenDetail;
+                        let url = "register.html?teamid=" + chosenDetail +
+                            "&minmemberage=" + obj.MinMemberAge +
+                            "&maxmemberage=" + obj.MaxMemberAge +
+                            "&maxteammembers=" + obj.MaxTeamMembers +
+                            "&teamgender=" + obj.TeamGender +
+                            "&membercount=" + obj.Members.length;
                         let urledit = "detailsteamedit.html?teamid=" + chosenDetail;
 
                         $("#teamTableBody").empty();
