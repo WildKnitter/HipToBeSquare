@@ -29,7 +29,7 @@ $(function() {
 
                     createDetailTable();
 
-                    //This function dynamically creates the team table.
+                    //This function dynamically creates the team table edit form.
                     function createDetailTable() {
                         $("#detailsFormCreate").empty();
                         let markupBody0 = "<div class='form-group'><label for='teamId'>Team ID:</label><input type='text' class='form-control' id='teamId' name='teamid' value = '" + obj.TeamId + "' readonly></div>";
