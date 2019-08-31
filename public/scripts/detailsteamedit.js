@@ -111,7 +111,6 @@ $(function() {
                         data: $("#detailsFormEdit").serialize(), // id of your form
                         method: "PUT", // method is any HTTP method
                         success: function() {
-                                alert("Updated!");
                                 location.href = "teamdetails.html?teamid=" + $("#teamId").val();
                             } // end of success function
                     }) // end of ajax PUT

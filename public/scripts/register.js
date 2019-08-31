@@ -44,6 +44,12 @@ function registerForTeam() {
 //Validate the form
 function validateForm() {
     let errMsgs = [];
+    let urlParams = new URLSearchParams(location.search);
+    let minmemberage = urlParams.get("minmemberage");
+    let maxmemberage = urlParams.get("maxmemberage");
+    let maxteammembers = urlParams.get("maxteammembers");
+    let teamgender = urlParams.get("teamgender");
+    let membercount = urlParams.get("membercount");
     let emailReg = /^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$/;
     let phoneReg = /^\d{3}-\d{3}-\d{4}/;
     let ageReg = /^(0|(\+)?[1-9]{1}[0-9]{0,8}|(\+)?[1-3]{1}[0-9]{1,9}|(\+)?[4]{1}([0-1]{1}[0-9]{8}|[2]{1}([0-8]{1}[0-9]{7}|[9]{1}([0-3]{1}[0-9]{6}|[4]{1}([0-8]{1}[0-9]{5}|[9]{1}([0-5]{1}[0-9]{4}|[6]{1}([0-6]{1}[0-9]{3}|[7]{1}([0-1]{1}[0-9]{2}|[2]{1}([0-8]{1}[0-9]{1}|[9]{1}[0-5]{1})))))))))$/;
@@ -67,6 +73,21 @@ function validateForm() {
     }
     if (ageReg.test($("#age").val()) == false) {
         errMsgs[errMsgs.length] = "Age needs to be an integer!";
+    }
+    if ((Number(membercount) == Number(maxteammembers))) {
+        errMsgs[errMsgs.length] = "This group has reached the maximum number of members";
+    }
+    if (Number($("#age").val()) > (Number(maxmemberage))) {
+        errMsgs[errMsgs.length] = "Age is greater than the team maximum age.";
+    }
+    if (Number($("#age").val()) < (Number(minmemberage))) {
+        errMsgs[errMsgs.length] = "Age is less than the team minimum age.";
+    }
+    if ((teamgender == "Male") && ($("#female").prop("checked"))) {
+        errMsgs[errMsgs.length] = "This is a male team.";
+    }
+    if ((teamgender == "Female") && ($("#male").prop("checked"))) {
+        errMsgs[errMsgs.length] = "This is a female team.";
     }
     return errMsgs;
 } // end of validateForm function
