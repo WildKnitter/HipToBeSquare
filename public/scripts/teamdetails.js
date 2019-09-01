@@ -101,7 +101,7 @@ $(function() {
                                 "&phone=" + obj.Members[j].Phone;
                             //encode URI to be able to pass the string with spaces, email, etc.
                             let encodedURI = encodeURI(urlunreg);
-                            // urlMemEdit creates a url with information contatenated to bring into the unregister page.
+                            // urlMemEdit creates a url with information contatenated to bring into the Edit Member page.
                             let urlMemEdit = "detailsmemberedit.html?teamid=" + chosenDetail +
                                 "&membername=" + obj.Members[j].MemberName +
                                 "&memberid=" + obj.Members[j].MemberId +
@@ -109,7 +109,10 @@ $(function() {
                                 "&contactname=" + obj.Members[j].ContactName +
                                 "&age=" + obj.Members[j].Age +
                                 "&gender=" + obj.Members[j].Gender +
-                                "&phone=" + obj.Members[j].Phone;
+                                "&phone=" + obj.Members[j].Phone +
+                                "&minmemberage=" + obj.MinMemberAge +
+                                "&maxmemberage=" + obj.MaxMemberAge +
+                                "&teamgender=" + obj.TeamGender;
                             //encode URI to be able to pass the string with spaces, email, etc.
                             let encodedEditURI = encodeURI(urlMemEdit);
                             let markupBody9 = "<tr><td>" + obj.Members[j].MemberName + "</td><td>" +
