@@ -127,6 +127,11 @@
         font-weight: bold;
     }
     
+    #memberCount {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+    
     #errorMsg {
         color: red;
         font-weight: bold;
@@ -135,6 +140,10 @@
     #teamLink {
         font-weight: bold;
         text-decoration: underline;
+    }
+    
+    #teamDiv {
+        padding-top: 1rem;
     }
     
     #msgDiv {
