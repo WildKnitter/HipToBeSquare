@@ -92,7 +92,7 @@ $(function() {
         $("#btnUpdateTeam").on("click", updateTeam);
         $("#btnCancelUpdate").on("click", cancelUpdates);
 
-        //when ADD button is clicked:
+        //when Update button is clicked:
         function updateTeam() {
             let errMsgs = validateForm();
             $("#msgDiv").empty();

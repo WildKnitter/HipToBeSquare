@@ -84,6 +84,8 @@ $(function() {
                             $("#memberCnt").html(obj.Members.length);
                         }
                         // end Member Count
+
+                        //member load
                         $("#memberTableHead").empty();
                         let markupHeader = "<tr><th>Member Name</th><th>Member Id</th><th>Member Email</th><th>Edit/Unregister</th></tr>";
                         $("#memberTableHead").append(markupHeader);
@@ -115,12 +117,12 @@ $(function() {
                                 "&teamgender=" + obj.TeamGender;
                             //encode URI to be able to pass the string with spaces, email, etc.
                             let encodedEditURI = encodeURI(urlMemEdit);
-                            let markupBody9 = "<tr><td>" + obj.Members[j].MemberName + "</td><td>" +
+                            let markupBody11 = "<tr><td>" + obj.Members[j].MemberName + "</td><td>" +
                                 obj.Members[j].MemberId + "</td><td>" +
                                 obj.Members[j].Email + "</td><td><a class='edit mr-2' title='Edit' href=" +
                                 encodedEditURI + "><i class='fa fa-pencil-alt fa-lg' aria-hidden='true'></i></a><a class='mr-2' title='Unregister' href=" +
                                 encodedURI + "><i class='fas fa-trash-alt fa-lg' aria-hidden='true'></i></a></tr>";
-                            $("#memberTableBody").append(markupBody9);
+                            $("#memberTableBody").append(markupBody11);
                         } // end of if for member table load                 
 
                         $("#btnRegister").on("click", registerForTeam);
@@ -132,6 +134,11 @@ $(function() {
                         // the function createDetailTable sends the user to the
                         // detailsteamedit page.
 
+                        $("#btnDeleteTeam").on("click", deleteTeam);
+                        // when the Edit Team Details button is clicked, the urledit created in 
+                        // the function createDetailTable sends the user to the
+                        // detailsteamedit page.
+
                         function registerForTeam() {
                             location.href = url;
                         } // end of registerForTeam Function
@@ -139,6 +146,23 @@ $(function() {
                         function editTeamDetails() {
                             location.href = urledit;
                         } // end of editTeamDetails Function
+
+                        function deleteTeam() {
+                            alert("Are you sure you wish to delete this team?");
+                            $.ajax({
+                                    url: "/api/teams/" + chosenDetail,
+                                    type: "DELETE",
+                                    data: $("#detailsForm").serialize()
+                                }) // end of AJAX
+                                .done(function(data, status, xhr) {
+                                    alert("Team Deleted!");
+                                    location.href = "teams.html";
+                                })
+                                .fail(function() {
+                                    alert("FAIL: Team NOT Deleted!");
+                                });
+                            return false;
+                        } // end of deleteTeam Function
                     } // end of createDetailTable function
                 } // end of function(data)
             ) // end of .getJSON
