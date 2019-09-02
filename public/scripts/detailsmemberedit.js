@@ -25,9 +25,6 @@ $(function() {
     let age = urlParams.get("age");
     let gender = urlParams.get("gender");
     let phone = urlParams.get("phone");
-    let minmemberage = urlParams.get("minmemberage");
-    let maxmemberage = urlParams.get("maxmemberage");
-    let teamgender = urlParams.get("teamgender");
     $("#teamid").val(teamid);
     $("#memberid").val(memberid);
     $("#membername").val(membername);

@@ -40,8 +40,8 @@ $(function() {
 
 //when Unregister button is clicked:
 function unRegisterForTeam() {
-    alert("Are you sure you wish to delete this member?");
-    $.ajax({
+    if (confirm("Are you sure you wish to delete this member?"))
+        $.ajax({
             url: "/api/teams/" + $("#teamid").val() + "/members/" + $("#memberid").val(),
             type: "DELETE",
             data: $("#unRegisterForm").serialize()
