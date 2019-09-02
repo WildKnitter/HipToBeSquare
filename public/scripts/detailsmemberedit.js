@@ -35,10 +35,11 @@ $(function() {
     $("#phone").val(phone);
 
     $("#btnEditMember").on("click", editTeamMember);
+    $("#unRegisterForTeam").on("click", unRegisterForTeam);
     $("#btnCancel").on("click", cancelUpdates);
 }); // end of Ready Load
 
-//when ADD button is clicked:
+//when Update button is clicked:
 function editTeamMember() {
     let errMsgs = validateForm();
     $("#msgDiv").empty();
@@ -51,21 +52,40 @@ function editTeamMember() {
         return false;
     }
     // EDIT A Member
-    {
-        $.ajax({
-                url: "/api/teams/" + $("#teamid").val() + "/members", // your api url
-                data: $("#memberDetailsFormEdit").serialize(), // id of your form
-                method: "PUT", // method is any HTTP method
-                success: function() {
-                        location.href = "teamdetails.html?teamid=" + $("#teamid").val();
-                    } // end of success function
-            }) // end of ajax PUT
-            .fail(function() {
-                alert("Didn't Update!");
-                location.href = "teamdetails.html?teamid=" + $("#teamid").val();
-            }); // end of fail function
-    } // end of EDIT A Team
+
+    $.ajax({
+            url: "/api/teams/" + $("#teamid").val() + "/members", // your api url
+            type: "PUT", // method is any HTTP method
+            data: $("#memberDetailsFormEdit").serialize(), // id of your form
+        }) // end of AJAX
+        .done(function() {
+            location.href = "teamdetails.html?teamid=" + $("#teamid").val();
+        }) // end of done function
+        .fail(function() {
+            alert("Didn't Update!");
+            location.href = "teamdetails.html?teamid=" + $("#teamid").val();
+        }); // end of fail function
+    return false;
 } // end of editTeamMember function
+
+//when Unregister button is clicked:
+function unRegisterForTeam() {
+    if (confirm("Are you sure you wish to delete this member?"))
+        $.ajax({
+            url: "/api/teams/" + $("#teamid").val() + "/members/" + $("#memberid").val(),
+            type: "DELETE",
+            data: $("#memberDetailsFormEdit").serialize()
+        }) // end of AJAX
+        .done(function(data, status, xhr) {
+            alert("Team Member Deleted!");
+            location.href = "teamdetails.html?teamid=" + $("#teamid").val();
+        })
+        .fail(function() {
+            alert("FAIL: Team Member NOT Deleted!");
+        });
+    return false;
+} // end of unRegisterForteam function
+
 
 //Validate the form
 function validateForm() {

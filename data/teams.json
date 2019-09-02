@@ -8,7 +8,7 @@
         "ManagerEmail": "pbelknap@cox.net",
         "MaxTeamMembers": 5,
         "MinMemberAge": 10,
-        "MaxMemberAge": 100,
+        "MaxMemberAge": 95,
         "TeamGender": "Any",
         "Members": [{
                 "MemberId": 1,
@@ -47,13 +47,13 @@
                 "Phone": "860-555-6363"
             },
             {
-                "MemberId": 108,
+                "MemberId": 113,
                 "Email": "dara@cox.net",
                 "MemberName": "Dara Neiman",
                 "ContactName": "Dara",
                 "Age": 60,
                 "Gender": "Female",
-                "Phone": "860-555-7899"
+                "Phone": "860-555-7845"
             }
         ]
     },
@@ -78,6 +78,38 @@
             "Gender": "Male",
             "Phone": "575-555-5454"
         }]
+    },
+    {
+        "TeamId": 3,
+        "TeamName": "KnittingFools",
+        "League": "Shelter",
+        "TeamType": "Knitting",
+        "ManagerName": "Rachael Smith",
+        "ManagerPhone": "860-555-1234",
+        "ManagerEmail": "rsmith@aol.com",
+        "MinMemberAge": 0,
+        "MaxMemberAge": 100,
+        "MaxTeamMembers": 5,
+        "TeamGender": "Any",
+        "Members": [{
+                "MemberId": 6,
+                "Email": "rsmith@aol.com",
+                "MemberName": "Rachael Smith",
+                "ContactName": "Rachael Smith",
+                "Age": 35,
+                "Gender": "Female",
+                "Phone": "860-555-1234"
+            },
+            {
+                "MemberId": 7,
+                "Email": "angiev@gmail.com",
+                "MemberName": "Angie Jones",
+                "ContactName": "Angie Jones",
+                "Age": 41,
+                "Gender": "Female",
+                "Phone": "860-555-4569"
+            }
+        ]
     },
     {
         "TeamId": 4,
@@ -159,7 +191,15 @@
         "MinMemberAge": 5,
         "MaxMemberAge": 99,
         "TeamGender": "Female",
-        "Members": []
+        "Members": [{
+            "MemberId": 114,
+            "Email": "pbelknap@cox.net",
+            "MemberName": "Pam Belknap",
+            "ContactName": "",
+            "Age": 55,
+            "Gender": "Female",
+            "Phone": "860-555-4061"
+        }]
     },
     {
         "TeamId": 104,
