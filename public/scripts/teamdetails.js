@@ -103,6 +103,7 @@ $(function() {
                                 "&phone=" + obj.Members[j].Phone;
                             //encode URI to be able to pass the string with spaces, email, etc.
                             let encodedURI = encodeURI(urlunreg);
+
                             // urlMemEdit creates a url with information contatenated to bring into the Edit Member page.
                             let urlMemEdit = "detailsmemberedit.html?teamid=" + chosenDetail +
                                 "&membername=" + obj.Members[j].MemberName +
@@ -117,6 +118,8 @@ $(function() {
                                 "&teamgender=" + obj.TeamGender;
                             //encode URI to be able to pass the string with spaces, email, etc.
                             let encodedEditURI = encodeURI(urlMemEdit);
+
+                            //populates the member table
                             let markupBody11 = "<tr><td>" + obj.Members[j].MemberName + "</td><td>" +
                                 obj.Members[j].MemberId + "</td><td>" +
                                 obj.Members[j].Email + "</td><td><a class='edit mr-2' title='Edit' href=" +
@@ -146,6 +149,65 @@ $(function() {
                         function editTeamDetails() {
                             location.href = urledit;
                         } // end of editTeamDetails Function
+
+                        function showDeleteMemberCard {
+                            let cardTitle = $("#cardTitle");
+                            cardTitle.html(objs[i].Members[j].MemberName);
+                            $(".card-body").append(
+                                $("<p />")
+                                .attr("class", "card-text")
+                                .attr("id", "cardtext1")
+                                .html("Member ID: " + objs[i].Members[j].MemberId)
+                            ); // end of cardtext1 append parenthesis
+                            $(".card-body").append(
+                                $("<p />")
+                                .attr("class", "card-text")
+                                .attr("id", "cardtex2")
+                                .html("Member Contact Name: " + objs[i].Members[j].ContactName)
+                            ); // end of cardtext2 append parenthesis
+                            $(".card-body").append(
+                                $("<p />")
+                                .attr("class", "card-text")
+                                .attr("id", "cardtext3")
+                                .html("Member Email: " + objs[i].Members[j].Email)
+                            ); // end of cardtext3 append parenthesis
+                            $(".card-body").append(
+                                $("<p />")
+                                .attr("class", "card-text")
+                                .attr("id", "cardtext4")
+                                .html("Member Phone: " + objs[i].Members[j].Phone)
+                            ); // end of cardtext4 append parenthesis
+                            $(".card-body").append(
+                                $("<p />")
+                                .attr("class", "card-text")
+                                .attr("id", "cardtext5")
+                                .html("Member Age: " + objs[i].Members[j].Age)
+                            ); // end of cardtext5 append parenthesis
+                            $(".card-body").append(
+                                $("<p />")
+                                .attr("class", "card-text")
+                                .attr("id", "cardtext6")
+                                .html("Member Gender: " + objs[i].Members[j].Gender)
+                            ); // end of cardtext6 append parenthesis
+                            $(".card-body").append(
+                                $("<input />")
+                                .attr("class", "card-text btn btn-md btn-danger")
+                                .attr("id", "btnUnRegisterForTeam")
+                                .attr("name", "btnUnRegisterForTeam")
+                                .attr("type", "button")
+                                .attr("value", "UNREGISTER")
+                            ); // end of btnUnRegisterForTeam append parenthesis
+                            $(".card-body").append(
+                                $("<input />")
+                                .attr("class", "card-text btn btn-md btn-secondary")
+                                .attr("id", "btnCancel")
+                                .attr("name", "btnCancel")
+                                .attr("type", "button")
+                                .attr("value", "Cancel")
+                            ); // end of btnUnRegisterForTeam append parenthesis
+                            $("#memberCard").show();
+
+                        }
 
                         function deleteTeam() {
                             alert("Are you sure you wish to delete this team?");

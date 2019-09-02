@@ -38,7 +38,7 @@ $(function() {
     $("#btnCancel").on("click", cancelUpdates);
 }); // end of Ready Load
 
-//when ADD button is clicked:
+//when Unregister button is clicked:
 function unRegisterForTeam() {
     alert("Are you sure you wish to delete this member?");
     $.ajax({
@@ -54,7 +54,7 @@ function unRegisterForTeam() {
             alert("FAIL: Team Member NOT Deleted!");
         });
     return false;
-} // end of registerForteam function
+} // end of unRegisterForteam function
 
 //when CANCEL button is clicked:
 function cancelUpdates() {
