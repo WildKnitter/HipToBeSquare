@@ -35,9 +35,13 @@ function registerForTeam() {
         $("#msgDiv").html(msg);
         return false;
     }
-    $.post("/api/teams/" + $("#teamid").val() + "/members", $("#registrationForm").serialize(), function(data) {
-        location.href = "teamdetails.html?teamid=" + $("#teamid").val();
-    }); // end of post
+    $.post("/api/teams/" + $("#teamid").val() + "/members", $("#registrationForm").serialize(), function(data) {}) // end of post
+        .done(function() {
+            location.href = "teamdetails.html?teamid=" + $("#teamid").val();
+        }) // end of done function
+        .fail(function() {
+            alert("There was a problem, please try again.");
+        }); // end of fail function
     return false;
 } // end of registerForteam function
 

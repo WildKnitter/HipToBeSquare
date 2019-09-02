@@ -105,20 +105,19 @@ $(function() {
                 return false;
             }
             // EDIT A Team
-            {
-                $.ajax({
-                        url: "api/teams", // your api url
-                        data: $("#detailsFormEdit").serialize(), // id of your form
-                        method: "PUT", // method is any HTTP method
-                        success: function() {
-                                location.href = "teamdetails.html?teamid=" + $("#teamId").val();
-                            } // end of success function
-                    }) // end of ajax PUT
-                    .fail(function() {
-                        alert("Didn't Update!");
-                        location.href = "detailsteamedit.html?teamid=" + $("#teamId").val();
-                    }); // end of fail function
-            } // end of EDIT A Team
+            $.ajax({
+                    url: "api/teams", // your api url
+                    type: "PUT", // type is any HTTP method
+                    data: $("#detailsFormEdit").serialize(), // id of your form
+                }) // end of AJAX PUT
+                .done(function() {
+                    location.href = "teamdetails.html?teamid=" + $("#teamId").val();
+                }) // end of .done function
+                .fail(function() {
+                    alert("Didn't Update!");
+                    location.href = "detailsteamedit.html?teamid=" + $("#teamId").val();
+                }); // end of fail function
+            return false;
         } // end of updateTeam function
 
         //Validate the form
