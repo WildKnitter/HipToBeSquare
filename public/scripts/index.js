@@ -1,5 +1,6 @@
 "use strict";
-// This script contains code to dynamically create dropdown information on different organizations from a JSON file.
+// This script contains code to dynamically create dropdown information on different 
+// organizations from a JSON file.
 // Author:  Pam Belknap
 
 /*
