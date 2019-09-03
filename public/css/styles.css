@@ -153,6 +153,12 @@
         font-weight: bold;
         font-size: 1.1em;
     }
+    
+    #msgDivDelete {
+        color: darkred;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
     /* RESPONSIVE CSS
   -------------------------------------------------- */
     

@@ -16,6 +16,7 @@ Key for understanding the fields in the JSON file:
 //Ready Load
 // decodeURI used to decode the url string to get the team member information.
 $(function() {
+    $("#deleteCancelChoice").hide();
     let urlParams = new URLSearchParams(location.search);
     let teamid = urlParams.get("teamid");
     let memberid = urlParams.get("memberid");
@@ -34,30 +35,32 @@ $(function() {
     $("#gender").val(gender);
     $("#phone").val(phone);
 
-    $("#btnUnRegisterForTeam").on("click", unRegisterForTeam);
+    // Brings up choice to delete the member.
+    $("#btnUnRegisterForTeam").on("click", (function() {
+        $("#deleteCancelChoice").show();
+        $("#btnYesDelete").on("click", unRegisterForTeam);
+        $("#btnCancelAction").on("click", cancelUpdates);
+    }));
     $("#btnCancel").on("click", cancelUpdates);
 }); // end of Ready Load
 
 //when Unregister button is clicked:
 function unRegisterForTeam() {
-    if (confirm("Are you sure you wish to delete this member?"))
-        $.ajax({
+    $.ajax({
             url: "/api/teams/" + $("#teamid").val() + "/members/" + $("#memberid").val(),
             type: "DELETE",
             data: $("#unRegisterForm").serialize()
         }) // end of AJAX
         .done(function(data, status, xhr) {
-            alert("Team Member Deleted!");
             location.href = "teamdetails.html?teamid=" + $("#teamid").val();
         })
         .fail(function() {
-            alert("FAIL: Team Member NOT Deleted!");
+            $("#msgDivDelete").html("ERROR: Team was not deleted!");
         });
     return false;
 } // end of unRegisterForteam function
 
 //when CANCEL button is clicked:
 function cancelUpdates() {
-    location.reload();
     location.href = "teamdetails.html?teamid=" + $("#teamid").val();
 }; // end of Cancel Function
