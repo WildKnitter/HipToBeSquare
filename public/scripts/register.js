@@ -37,7 +37,7 @@ function registerForTeam() {
         $("#msgDiv").html(msg);
         return false;
     }
-    $.post("/api/teams/" + $("#teamid").val() + "/members", $("#registrationForm").serialize(), function(data) {}) // end of post
+    $.post("/api/teams/" + $("#teamid").val() + "/members", $("#registrationForm").serialize()) // end of post
         .done(function() {
             location.href = "teamdetails.html?teamid=" + $("#teamid").val();
         }) // end of done function
