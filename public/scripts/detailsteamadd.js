@@ -21,7 +21,6 @@ $(function() {
     //Starts the communication to the server
     $.getJSON(
         "/api/leagues",
-        //This function doesn't necessarily run instantaneously
         function(data) {
             orgs = data;
             //load dropdown lists here (code)
@@ -49,16 +48,17 @@ function addNewTeam() {
         $("#msgDiv").html(msg);
         return false;
     }
-    //NOTE: the Posting of the new team now includes the TeamId so that the user will
+    //NOTE: the Posting of the new team now includes the Team Id so that the user will
     //be directed back to their new team they just created!
     $.post("/api/teams", $("#detailsInputForm").serialize(), function(data) {
             data = JSON.parse(data);
+            location.href = "teamdetails.html?teamid=" + data.TeamId;
         }) // end of post
         .done(function() {
-            location.href = "teamdetails.html?teamid=" + data.TeamId;
+            $("#msgAdd").html("Team added!");
         }) // end of done function
         .fail(function() {
-            alert("There was a problem, please try again.");
+            $("#msgAdd").html("ERROR: Team was not added!");
         }); // end of fail function
     return false;
 } // end of addNewTeam function
@@ -112,6 +112,5 @@ function validateForm() {
 
 //when CANCEL button is clicked:
 function cancelAdd() {
-    location.reload();
     location.href = "teams.html";
 }; // end of Cancel Function
