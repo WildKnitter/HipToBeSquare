@@ -30,7 +30,7 @@ $(function() {
 
                     createDetailTable();
 
-                    //This function dynamically creates the team table.
+                    //This function dynamically creates the team information.
                     function createDetailTable() {
                         let url = "register.html?teamid=" + chosenDetail +
                             "&minmemberage=" + obj.MinMemberAge +
@@ -152,14 +152,14 @@ $(function() {
                                     location.href = "teams.html";
                                 })
                                 .fail(function() {
-                                    alert("FAIL: Team NOT Deleted!");
+                                    $("#msgDivDelete").html("ERROR: Team was not deleted!");
                                 });
                             return false;
                         } // end of deleteTeam Function
 
                         function cancelAction() {
                             $("#deleteCancelChoice").hide();
-                        } // end of doNothing Function
+                        } // end of cancelAction Function
                     } // end of createDetailTable function
                 } // end of function(data)
             ) // end of .getJSON

@@ -33,10 +33,16 @@ $(function() {
     $("#age").val(age);
     $("#gender").val(gender);
     $("#phone").val(phone);
+    $("#deleteCancelChoice").hide();
 
+    //Buttons
     $("#btnEditMember").on("click", editTeamMember);
-    $("#unRegisterForTeam").on("click", unRegisterForTeam);
     $("#btnCancel").on("click", cancelUpdates);
+    $("#btnUnRegisterForTeam").on("click", (function() {
+        $("#deleteCancelChoice").show();
+        $("#btnYesDeleteMember").on("click", unRegisterForTeam);
+        $("#btnCancelAction").on("click", cancelAction);
+    }));
 }); // end of Ready Load
 
 //when Update button is clicked:
@@ -52,7 +58,6 @@ function editTeamMember() {
         return false;
     }
     // EDIT A Member
-
     $.ajax({
             url: "/api/teams/" + $("#teamid").val() + "/members", // your api url
             type: "PUT", // method is any HTTP method
@@ -62,7 +67,7 @@ function editTeamMember() {
             location.href = "teamdetails.html?teamid=" + $("#teamid").val();
         }) // end of done function
         .fail(function() {
-            alert("Didn't Update!");
+            $("#msgDivDelete").html("ERROR: Team was not updated!");
             location.href = "teamdetails.html?teamid=" + $("#teamid").val();
         }); // end of fail function
     return false;
@@ -70,18 +75,16 @@ function editTeamMember() {
 
 //when Unregister button is clicked:
 function unRegisterForTeam() {
-    if (confirm("Are you sure you wish to delete this member?"))
-        $.ajax({
+    $.ajax({
             url: "/api/teams/" + $("#teamid").val() + "/members/" + $("#memberid").val(),
             type: "DELETE",
             data: $("#memberDetailsFormEdit").serialize()
         }) // end of AJAX
         .done(function(data, status, xhr) {
-            alert("Team Member Deleted!");
             location.href = "teamdetails.html?teamid=" + $("#teamid").val();
         })
         .fail(function() {
-            alert("FAIL: Team Member NOT Deleted!");
+            $("#msgDivDelete").html("ERROR: Team was not deleted!");
         });
     return false;
 } // end of unRegisterForteam function
@@ -141,6 +144,9 @@ function validateForm() {
 
 //when CANCEL button is clicked:
 function cancelUpdates() {
-    location.reload();
     location.href = "teamdetails.html?teamid=" + $("#teamid").val();
-}; // end of Cancel Function
+} // end of Cancel Function
+
+function cancelAction() {
+    $("#deleteCancelChoice").hide();
+} // end of cancelAction Function
