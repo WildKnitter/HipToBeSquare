@@ -52,8 +52,9 @@
     <div class="row">
         <div class="col-md-10 offset-md-2">
             <form id="registrationForm" name="registrationForm" method="POST" action="index.html">
-                <label for="teamid">Team ID</label>
-                <input id="teamid" name="teamid" readonly>
+                <label for="teamname">Team Name</label>
+                <input id="teamname" name="teamname" readonly>
+                <hidden id="teamid" name="teamid" />
                 <br />
                 <label for="membername">Member Name</label>
                 <input id="membername" name="membername" type="text" placeholder="John Smith" autofocus required>
@@ -74,8 +75,6 @@
                 <label for="male">Male</label>
                 <input type="radio" name="gender" id="female" value="Female" checked>
                 <label for="female">Female</label>
-                <input type="radio" name="gender" id="any" value="Any" checked>
-                <label for="any">Any</label>
             </form>
         </div>
     </div>
@@ -84,6 +83,7 @@
     <div class="row">
         <div class="col-md-4 offset-md-5">
             <div id="msgDiv"></div>
+            <div id="msgAdd"></div>
         </div>
     </div>
 

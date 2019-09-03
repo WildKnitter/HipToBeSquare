@@ -67,7 +67,7 @@ function editTeamMember() {
             location.href = "teamdetails.html?teamid=" + $("#teamid").val();
         }) // end of done function
         .fail(function() {
-            $("#msgDivDelete").html("ERROR: Team was not updated!");
+            $("#msgDivEdit").html("ERROR: Team was not updated!");
             location.href = "teamdetails.html?teamid=" + $("#teamid").val();
         }); // end of fail function
     return false;
@@ -121,8 +121,8 @@ function validateForm() {
     if (ageReg.test($("#age").val()) == false) {
         errMsgs[errMsgs.length] = "Age needs to be an integer!";
     }
-    if (($("#gender").val() != "Male") && ($("#gender").val() != "Female") && ($("#gender").val() != "Any")) {
-        errMsgs[errMsgs.length] = "Gender should be Male, Female, or Any";
+    if (($("#gender").val() != "Male") && ($("#gender").val() != "Female")) {
+        errMsgs[errMsgs.length] = "Gender should be Male or Female";
     }
     if (Number($("#age").val()) > (Number(maxmemberage))) {
         errMsgs[errMsgs.length] = "Age is greater than the team maximum age.";

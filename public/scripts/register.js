@@ -17,7 +17,9 @@ Key for understanding the fields in the JSON file:
 $(function() {
     let urlParams = new URLSearchParams(location.search);
     let teamid = urlParams.get("teamid");
+    let teamname = urlParams.get("teamname");
     $("#teamid").val(teamid);
+    $("#teamname").val(teamname);
     $("#btnRegisterForTeam").on("click", registerForTeam);
     $("#btnCancel").on("click", cancelUpdates);
 
@@ -40,7 +42,7 @@ function registerForTeam() {
             location.href = "teamdetails.html?teamid=" + $("#teamid").val();
         }) // end of done function
         .fail(function() {
-            alert("There was a problem, please try again.");
+            $("#msgAdd").html("ERROR: Member was not added!");
         }); // end of fail function
     return false;
 } // end of registerForteam function
