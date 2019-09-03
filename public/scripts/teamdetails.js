@@ -33,6 +33,7 @@ $(function() {
                     //This function dynamically creates the team information.
                     function createDetailTable() {
                         let url = "register.html?teamid=" + chosenDetail +
+                            "&teamname=" + obj.TeamName +
                             "&minmemberage=" + obj.MinMemberAge +
                             "&maxmemberage=" + obj.MaxMemberAge +
                             "&maxteammembers=" + obj.MaxTeamMembers +
@@ -43,25 +44,18 @@ $(function() {
                         $("#teamTableBody").empty();
                         let markupBody1 = "<tr class='firstRow'><td>Team Name</td><td id='teamName'>" + obj.TeamName + "</td></tr>";
                         $("#teamTableBody").append(markupBody1);
-
                         let markupBody2 = "<tr><td>Organization</td><td id='league'>" + obj.League + "</td></tr>";
                         $("#teamTableBody").append(markupBody2);
-
                         let markupBody3 = "<tr><td>Team Type</td><td id='teamType'>" + obj.TeamType + "</td></tr>";
                         $("#teamTableBody").append(markupBody3);
-
                         let markupBody4 = "<tr><td>Team Manager</td><td id='managerName'>" + obj.ManagerName + "<br>" + "<id='managerPhone'>" + obj.ManagerPhone + "<br>" + "<id='managerEmail'>" + obj.ManagerEmail + "</td></tr>";
                         $("#teamTableBody").append(markupBody4);
-
                         let markupBody5 = "<tr><td>Maximum Members to a Team</td><td id='maxTeamMembers'>" + obj.MaxTeamMembers + "</td></tr>";
                         $("#teamTableBody").append(markupBody5);
-
                         let markupBody6 = "<tr><td>Team Age Range</td><td id='minMemberAge'>" + obj.MinMemberAge + " to " + "<id='minMemberAge'>" + obj.MaxMemberAge + "</td></tr>";
                         $("#teamTableBody").append(markupBody6);
-
                         let markupBody7 = "<tr><td>Team Gender</td><td id='teamGender'>" + obj.TeamGender + "</td></tr>";
                         $("#teamTableBody").append(markupBody7);
-
                         let markupBody8 = "<tr><td>" + "Members Registered" + "</td><td id='memberCnt'></td></tr>";
                         $("#teamTableBody").append(markupBody8);
 
