@@ -22,10 +22,9 @@ $(function() {
         //Starts the communication to the server
         $.getJSON(
             "/api/leagues",
-            //This function doesn't necessarily run instantaneously
             function(data) {
                 orgs = data;
-                //load dropdown lists here (code)
+                //load dropdown lists here
                 for (let i = 0; i < orgs.length; i++) {
                     let teamOption = $("<option>", { text: orgs[i].Name, value: orgs[i].Code });
                     $("#teamChoice").append(teamOption);
@@ -49,7 +48,6 @@ $(function() {
             //Starts the communication to the server
             $.getJSON(
                 "/api/teams/byleague/" + $("#teamChoice").val(),
-                //This function doesn't necessarily run instantaneously
                 function(data) {
                     objs = data;
                     $("#teamTableHead").empty();
@@ -73,7 +71,6 @@ $(function() {
             //Starts the communication to the server
             $.getJSON(
                 "/api/teams",
-                //This function doesn't necessarily run instantaneously
                 function(data) {
                     objs = data;
                     let chosenCraft = $("#teamType").val();
@@ -106,7 +103,6 @@ $(function() {
             //Starts the communication to the server
             $.getJSON(
                 "/api/teams",
-                //This function doesn't necessarily run instantaneously
                 function(data) {
                     objs = data;
                     $("#teamTableHead").empty();
