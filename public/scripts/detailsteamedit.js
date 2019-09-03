@@ -23,7 +23,6 @@ $(function() {
         //This API gets a particular team by ID, using /api/teams/:id
         $.getJSON(
                 "/api/teams/" + chosenDetail,
-                //This function doesn't necessarily run instantaneously
                 function(data) {
                     obj = data;
 
@@ -34,34 +33,24 @@ $(function() {
                         $("#detailsFormCreate").empty();
                         let markupBody0 = "<div class='form-group'><label for='teamId'>Team ID:</label><input type='text' class='form-control' id='teamId' name='teamid' value = '" + obj.TeamId + "' readonly></div>";
                         $("#detailsFormCreate").append(markupBody0);
-
                         let markupBody1 = "<div class='form-group'><label for='teamName'>Team Name:</label><input type='text' class='form-control' id='teamName' name='teamname' value = '" + obj.TeamName + "' ></div>";
                         $("#detailsFormCreate").append(markupBody1);
-
                         let markupBody2 = "<div class='form-group'><label for='league'>Organization:</label><input type='text' class='form-control' id='league' name='leaguecode' value = '" + obj.League + "' readonly></div>";
                         $("#detailsFormCreate").append(markupBody2);
-
                         let markupBody3 = "<div class='form-group'><label for='teamType'>Team Type:</label><input type='text' class='form-control' id='teamType' name='teamtype' value = '" + obj.TeamType + "' ></div>";
                         $("#detailsFormCreate").append(markupBody3);
-
                         let markupBody4 = "<div class='form-group'><label for='managerName'>Team Manager Name:</label><input type='text' class='form-control' id='managerName' name='managername' value = '" + obj.ManagerName + "' ></div>";
                         $("#detailsFormCreate").append(markupBody4);
-
                         let markupBody5 = "<div class='form-group'><label for='managerPhone'>Manager Phone Number:</label><input type='tel' class='form-control' id='managerPhone' name='managerphone' value = '" + obj.ManagerPhone + "' ></div>";
                         $("#detailsFormCreate").append(markupBody5);
-
                         let markupBody6 = "<div class='form-group'><label for='managerEmail'>Manager Email Address:</label><input type='email' class='form-control' id='managerEmail' name='manageremail' value = '" + obj.ManagerEmail + "' ></div>";
                         $("#detailsFormCreate").append(markupBody6);
-
                         let markupBody7 = "<div class='form-group'><label for='maxTeamMembers'>Maximum Members to a Team:</label><input type='number' class='form-control' id='maxTeamMembers' name='maxteammembers' value = '" + obj.MaxTeamMembers + "' ></div>";
                         $("#detailsFormCreate").append(markupBody7);
-
                         let markupBody8 = "<div class='form-group'><label for='minMemberAge'>Minimum Member Age:</label><input type='number' class='form-control' id='minMemberAge' name='minmemberage' value = '" + obj.MinMemberAge + "' ></div>";
                         $("#detailsFormCreate").append(markupBody8);
-
                         let markupBody9 = "<div class='form-group'><label for='maxMemberAge'>Maximum Member Age:</label><input type='number' class='form-control' id='maxMemberAge' name='maxmemberage' value = '" + obj.MaxMemberAge + "' ></div>";
                         $("#detailsFormCreate").append(markupBody9);
-
                         let markupBody10 = "<div class='form-group'><label for='teamGender'>Team Gender:</label><input type='text' class='form-control' id='teamGender' name='teamgender' value = '" + obj.TeamGender + "' ></div>";
                         $("#detailsFormCreate").append(markupBody10);
 
@@ -73,18 +62,20 @@ $(function() {
                             $("#memberCnt").html(obj.Members.length);
                         }
                         // end Member Count
+
+                        // populate the member information on page.
                         $("#memberTableHead").empty();
-                        let markupHeader = "<tr><th>Member Name</th><th>Member Id</th><th>Member Email</th><th>Member Age</th></tr>";
+                        let markupHeader = "<tr><th>Member Name</th><th>Member Age</th><th>Member Gender</th><th>Member Email</th></tr>";
                         $("#memberTableHead").append(markupHeader);
                         $("#memberTableHead").css("font-weight", "bold");
                         $("#memberTableBody").empty();
                         for (let j = 0; j < obj.Members.length; j++) {
-                            let markupBody12 = "<tr><td>" + obj.Members[j].MemberName +
-                                "</td><td>" + obj.Members[j].MemberId +
-                                "</td><td>" + obj.Members[j].Email +
-                                "</td><td>" + obj.Members[j].Age + "</td></tr>";
-                            $("#memberTableBody").append(markupBody12);
-                        } // end of if for member table load
+                            let markupBody11 = "<tr><td>" + obj.Members[j].MemberName +
+                                "</td><td>" + obj.Members[j].Age +
+                                "</td><td>" + obj.Members[j].Gender +
+                                "</td><td>" + obj.Members[j].Email + "</td></tr>";
+                            $("#memberTableBody").append(markupBody11);
+                        } // end of if for member information load
                     } // end of createDetailTable function
                 } // end of function(data)
             ) // end of .getJSON
@@ -114,7 +105,7 @@ $(function() {
                     location.href = "teamdetails.html?teamid=" + $("#teamId").val();
                 }) // end of .done function
                 .fail(function() {
-                    alert("Didn't Update!");
+                    $("#msgEdit").html("ERROR: Team was not updated!");
                     location.href = "detailsteamedit.html?teamid=" + $("#teamId").val();
                 }); // end of fail function
             return false;
