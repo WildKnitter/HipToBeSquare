@@ -75,7 +75,8 @@ $(function() {
                         $("#memberTableHead").css("font-weight", "bold");
                         $("#memberTableBody").empty();
                         for (let j = 0; j < obj.Members.length; j++) {
-                            // urlunreg creates a url with information contatenated to bring into the unregister page.
+                            // urlunreg creates a url with information contatenated to bring into 
+                            // the unregister page.
                             let urlunreg = "unregister.html?teamid=" + chosenDetail +
                                 "&membername=" + obj.Members[j].MemberName +
                                 "&memberid=" + obj.Members[j].MemberId +
@@ -87,7 +88,8 @@ $(function() {
                             //encode URI to be able to pass the string with spaces, email, etc.
                             let encodedURI = encodeURI(urlunreg);
 
-                            // urlMemEdit creates a url with information contatenated to bring into the Edit Member page.
+                            // urlMemEdit creates a url with information contatenated to bring into 
+                            // the Edit Member page.
                             let urlMemEdit = "detailsmemberedit.html?teamid=" + chosenDetail +
                                 "&membername=" + obj.Members[j].MemberName +
                                 "&memberid=" + obj.Members[j].MemberId +
@@ -121,7 +123,7 @@ $(function() {
                         // the function createDetailTable sends the user to the
                         // detailsteamedit page.
 
-                        // Brings up choice to delete the team.
+                        // Brings up choice to delete the team or cancel.
                         $("#btnDeleteTeam").on("click", (function() {
                             $("#deleteCancelChoice").show();
                             $("#btnYesDelete").on("click", deleteTeam);
