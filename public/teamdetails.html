@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
 </head>
 
-<body id="imgfranklinlarge">
+<body>
     <!--Navigation Bar-->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">Hip to be Square</a>
@@ -37,7 +37,6 @@
     </nav>
     <!--End Navigation Bar-->
 
-    <!--Header-->
     <!--Heading-->
     <div class="container">
         <header>
@@ -48,12 +47,23 @@
     <!--container end -->
 
     <!--Register and Edit Team Details Buttons -->
-    <div class="row justify-content-lg-center">
-        <div class="col-lg-6">
+    <div class="row justify-content-md-center">
+        <div class="col-md-5">
             <div id="registerUpdateButtons" class="container">
-                <input class="btn btn-lg btn-success" id="btnRegister" name="btnRegister" type="button" value="Register Here!">
-                <input class="btn btn-lg btn-primary" id="btnEditTeamDetails" name="btnEditTeamDetails" type="button" value="Edit Team Details">
-                <input class="btn btn-lg btn-danger" id="btnDeleteTeam" name="btnDeleteTeam" type="button" value="Delete Team">
+                <input class="btn btn-md btn-success" id="btnRegister" name="btnRegister" type="button" value="Register Here!">
+                <input class="btn btn-md btn-primary" id="btnEditTeamDetails" name="btnEditTeamDetails" type="button" value="Edit Team Details">
+                <input class="btn btn-md btn-danger" id="btnDeleteTeam" name="btnDeleteTeam" type="button" value="Delete Team">
+            </div>
+        </div>
+    </div>
+
+    <!--Team Delete and Cancel container -->
+    <div id="deleteCancelChoice" class="row justify-content-md-center">
+        <div class="col-md-8">
+            <h3>Are you sure you wish to delete this team?</h3>
+            <div id="deleteCancelButtons" class="container col-md-4">
+                <input class="btn btn-md btn-danger" id="btnYesDelete" name="btnYesDeleteTeam" type="button" value="Delete">
+                <input class="btn btn-md btn-secondary" id="btnCancelAction" name="btnCancelAction" type="button" value="Cancel Action">
             </div>
         </div>
     </div>

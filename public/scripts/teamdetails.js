@@ -16,6 +16,7 @@ Key for understanding the fields in the JSON file:
 let obj;
 
 $(function() {
+        $("#deleteCancelChoice").hide();
         let urlParams = new URLSearchParams(location.search);
         let chosenDetail = urlParams.get("teamid");
 
@@ -40,10 +41,7 @@ $(function() {
                         let urledit = "detailsteamedit.html?teamid=" + chosenDetail;
 
                         $("#teamTableBody").empty();
-                        let markupBody0 = "<tr><td class='firstRow'>Team ID</td><td class='firstRow'>" + obj.TeamId + "</td></tr>";
-                        $("#teamTableBody").append(markupBody0);
-
-                        let markupBody1 = "<tr><td>Team Name</td><td id='teamName'>" + obj.TeamName + "</td></tr>";
+                        let markupBody1 = "<tr class='firstRow'><td>Team Name</td><td id='teamName'>" + obj.TeamName + "</td></tr>";
                         $("#teamTableBody").append(markupBody1);
 
                         let markupBody2 = "<tr><td>Organization</td><td id='league'>" + obj.League + "</td></tr>";
@@ -52,29 +50,20 @@ $(function() {
                         let markupBody3 = "<tr><td>Team Type</td><td id='teamType'>" + obj.TeamType + "</td></tr>";
                         $("#teamTableBody").append(markupBody3);
 
-                        let markupBody4 = "<tr><td>Team Manager Name</td><td id='managerName'>" + obj.ManagerName + "</td></tr>";
+                        let markupBody4 = "<tr><td>Team Manager</td><td id='managerName'>" + obj.ManagerName + "<br>" + "<id='managerPhone'>" + obj.ManagerPhone + "<br>" + "<id='managerEmail'>" + obj.ManagerEmail + "</td></tr>";
                         $("#teamTableBody").append(markupBody4);
 
-                        let markupBody5 = "<tr><td>Manager Phone Number</td><td id='managerPhone'>" + obj.ManagerPhone + "</td></tr>";
+                        let markupBody5 = "<tr><td>Maximum Members to a Team</td><td id='maxTeamMembers'>" + obj.MaxTeamMembers + "</td></tr>";
                         $("#teamTableBody").append(markupBody5);
 
-                        let markupBody6 = "<tr><td>Manager Email Address</td><td id='managerEmail'>" + obj.ManagerEmail + "</td></tr>";
+                        let markupBody6 = "<tr><td>Team Age Range</td><td id='minMemberAge'>" + obj.MinMemberAge + " to " + "<id='minMemberAge'>" + obj.MaxMemberAge + "</td></tr>";
                         $("#teamTableBody").append(markupBody6);
 
-                        let markupBody7 = "<tr><td>Maximum Members to a Team</td><td id='maxTeamMembers'>" + obj.MaxTeamMembers + "</td></tr>";
+                        let markupBody7 = "<tr><td>Team Gender</td><td id='teamGender'>" + obj.TeamGender + "</td></tr>";
                         $("#teamTableBody").append(markupBody7);
 
-                        let markupBody8 = "<tr><td>Minimum Member Age</td><td id='minMemberAge'>" + obj.MinMemberAge + "</td></tr>";
+                        let markupBody8 = "<tr><td>" + "Members Registered" + "</td><td id='memberCnt'></td></tr>";
                         $("#teamTableBody").append(markupBody8);
-
-                        let markupBody9 = "<tr><td>Maximum Member Age</td><td id='maxMemberAge'>" + obj.MaxMemberAge + "</td></tr>";
-                        $("#teamTableBody").append(markupBody9);
-
-                        let markupBody10 = "<tr><td>Team Gender</td><td id='teamGender'>" + obj.TeamGender + "</td></tr>";
-                        $("#teamTableBody").append(markupBody10);
-
-                        let markupBody11 = "<tr><td>" + "Members Registered" + "</td><td id='memberCnt'></td></tr>";
-                        $("#teamTableBody").append(markupBody11);
 
                         //Member Count
                         if (obj.Members.length == 0) {
@@ -87,7 +76,7 @@ $(function() {
 
                         //member load
                         $("#memberTableHead").empty();
-                        let markupHeader = "<tr><th>Member Name</th><th>Member Id</th><th>Member Email</th><th>Edit/Unregister</th></tr>";
+                        let markupHeader = "<tr><th>Member Name</th><th>Age</th><th>Gender</th><th>Email</th><th>Edit/Unregister</th></tr>";
                         $("#memberTableHead").append(markupHeader);
                         $("#memberTableHead").css("font-weight", "bold");
                         $("#memberTableBody").empty();
@@ -103,6 +92,7 @@ $(function() {
                                 "&phone=" + obj.Members[j].Phone;
                             //encode URI to be able to pass the string with spaces, email, etc.
                             let encodedURI = encodeURI(urlunreg);
+
                             // urlMemEdit creates a url with information contatenated to bring into the Edit Member page.
                             let urlMemEdit = "detailsmemberedit.html?teamid=" + chosenDetail +
                                 "&membername=" + obj.Members[j].MemberName +
@@ -117,12 +107,15 @@ $(function() {
                                 "&teamgender=" + obj.TeamGender;
                             //encode URI to be able to pass the string with spaces, email, etc.
                             let encodedEditURI = encodeURI(urlMemEdit);
-                            let markupBody11 = "<tr><td>" + obj.Members[j].MemberName + "</td><td>" +
-                                obj.Members[j].MemberId + "</td><td>" +
+
+                            // load the member information to the page.
+                            let markupBody9 = "<tr><td>" + obj.Members[j].MemberName + "</td><td>" +
+                                obj.Members[j].Age + "</td><td>" +
+                                obj.Members[j].Gender + "</td><td>" +
                                 obj.Members[j].Email + "</td><td><a class='edit mr-2' title='Edit' href=" +
                                 encodedEditURI + "><i class='fa fa-pencil-alt fa-lg' aria-hidden='true'></i></a><a class='mr-2' title='Unregister' href=" +
                                 encodedURI + "><i class='fas fa-trash-alt fa-lg' aria-hidden='true'></i></a></tr>";
-                            $("#memberTableBody").append(markupBody11);
+                            $("#memberTableBody").append(markupBody9);
                         } // end of if for member table load                 
 
                         $("#btnRegister").on("click", registerForTeam);
@@ -134,10 +127,12 @@ $(function() {
                         // the function createDetailTable sends the user to the
                         // detailsteamedit page.
 
-                        $("#btnDeleteTeam").on("click", deleteTeam);
-                        // when the Edit Team Details button is clicked, the urledit created in 
-                        // the function createDetailTable sends the user to the
-                        // detailsteamedit page.
+                        // Brings up choice to delete the team.
+                        $("#btnDeleteTeam").on("click", (function() {
+                            $("#deleteCancelChoice").show();
+                            $("#btnYesDelete").on("click", deleteTeam);
+                            $("#btnCancelAction").on("click", cancelAction);
+                        }));
 
                         function registerForTeam() {
                             location.href = url;
@@ -148,14 +143,12 @@ $(function() {
                         } // end of editTeamDetails Function
 
                         function deleteTeam() {
-                            if (confirm("Are you sure you wish to delete this team?"))
-                                $.ajax({
+                            $.ajax({
                                     url: "/api/teams/" + chosenDetail,
                                     type: "DELETE",
                                     data: $("#detailsForm").serialize()
                                 }) // end of AJAX
                                 .done(function(data, status, xhr) {
-                                    alert("Team Deleted!");
                                     location.href = "teams.html";
                                 })
                                 .fail(function() {
@@ -163,6 +156,10 @@ $(function() {
                                 });
                             return false;
                         } // end of deleteTeam Function
+
+                        function cancelAction() {
+                            $("#deleteCancelChoice").hide();
+                        } // end of doNothing Function
                     } // end of createDetailTable function
                 } // end of function(data)
             ) // end of .getJSON
