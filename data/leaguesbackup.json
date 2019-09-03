@@ -1,0 +1,22 @@
+[
+ {
+ "Name": "Granby Senior Center",
+ "Code": "SeniorCenter",
+ "Description": "This charity league consists of teams that will create blankets for the Granby Senior Center members"
+ },
+ {
+ "Name": "Little Tykes Day Care",
+ "Code": "DayCare",
+ "Description": "This charity league consists of teams that will create blankets for the Little Tykes Day Care"
+},
+ {
+ "Name": "South Park Inn",
+ "Code": "Shelter",
+ "Description": "This league consists of teams that will create blankets for the South Park Inn Shelter"
+ },
+ {
+ "Name": "CT Humane Society in Newington",
+ "Code": "AnimalShelter",
+ "Description": "This league consists of teams that will create blankets for the CT Humane Society in Newington"
+ }
+]

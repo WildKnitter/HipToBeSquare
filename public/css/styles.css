@@ -159,6 +159,7 @@
         text-decoration: underline;
     }
     
+    #patternIllustrations,
     #teamDiv {
         padding-top: 1rem;
     }
@@ -209,6 +210,14 @@
             margin-right: auto;
             margin-left: auto;
         }
+        #imgyellowgrannysquare {
+            background-image: url("../images/smallyellowgrannysquare300300.jpg");
+            width: 500px;
+            height: 500px;
+            background-repeat: no-repeat;
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
     
     @media (min-width: 62em) {
@@ -227,6 +236,14 @@
             background-image: url("../images/franklinknittedsquareslong.jpg");
             width: 1263px;
             height: 680px;
+            background-repeat: no-repeat;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        #imgyellowgrannysquare {
+            background-image: url("../images/smallyellowgrannysquare300300.jpg");
+            width: 500px;
+            height: 500px;
             background-repeat: no-repeat;
             margin-right: auto;
             margin-left: auto;
