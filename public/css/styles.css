@@ -90,6 +90,10 @@
         padding-bottom: 1.1em;
     }
     
+    h4 {
+        text-align: center;
+    }
+    
     form {
         text-align: left;
         padding: 25px;
@@ -122,6 +126,7 @@
         font-weight: bold;
         font-style: italic;
         color: rgb(3, 3, 66);
+        s
     }
     
     .btnjustifycenter {
@@ -130,10 +135,13 @@
     }
     
     .deleteCancelContainer {
-        /*        background-color: rgb(230, 115, 15); */
         background-color: yellow;
         border-radius: 25px;
         padding: 0px 5px;
+    }
+    
+    .bg-purple {
+        background-color: purple;
     }
     
     #memberCount {

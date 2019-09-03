@@ -130,7 +130,7 @@ function validateForm() {
     if (Number($("#age").val()) < (Number(minmemberage))) {
         errMsgs[errMsgs.length] = "Age is less than the team minimum age.";
     }
-    if ((Number($("#age").val()) < 18) && ($("#contactname").empty())) {
+    if ((Number($("#age").val()) < 18) && ($("#contactname").val() == "")) {
         errMsgs[errMsgs.length] = "A minor requires a parent/guardian contact name.";
     }
     if ((teamgender == "Male") && ($("#gender").val() == "Female")) {
