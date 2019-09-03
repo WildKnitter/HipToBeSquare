@@ -50,12 +50,10 @@ function addNewTeam() {
     }
     //NOTE: the Posting of the new team now includes the Team Id so that the user will
     //be directed back to their new team they just created!
-    $.post("/api/teams", $("#detailsInputForm").serialize(), function(data) {
+    $.post("/api/teams", $("#detailsInputForm").serialize()) // end of post
+        .done(function(data) {
             data = JSON.parse(data);
             location.href = "teamdetails.html?teamid=" + data.TeamId;
-        }) // end of post
-        .done(function() {
-            $("#msgAdd").html("Team added!");
         }) // end of done function
         .fail(function() {
             $("#msgAdd").html("ERROR: Team was not added!");
