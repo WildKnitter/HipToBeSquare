@@ -1,4 +1,5 @@
 "use strict";
+//teamdetails page script for the Hip to be Square Capstone Project.
 //This script contains code to dynamically create information on different teams from a JSON file.
 //Author:  Pam Belknap
 
