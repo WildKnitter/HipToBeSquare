@@ -46,7 +46,7 @@ function registerForTeam() {
             $("#msgAdd").html("ERROR: Member was not added!");
         }); // end of fail function
     return false;
-} // end of registerForteam function
+} // end of registerForTeam function
 
 //Validate the form
 function validateForm() {
@@ -106,4 +106,4 @@ function validateForm() {
 function cancelUpdates() {
     location.reload();
     location.href = "teamdetails.html?teamid=" + $("#teamid").val();
-}; // end of Cancel Function
+}; // end of cancelUpdates Function

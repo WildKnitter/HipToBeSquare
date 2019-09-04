@@ -59,7 +59,7 @@ function unRegisterForTeam() {
             $("#msgDivDelete").html("ERROR: Team was not deleted!");
         });
     return false;
-} // end of unRegisterForteam function
+} // end of unRegisterForTeam function
 
 //when CANCEL button is clicked:
 function cancelUpdates() {
