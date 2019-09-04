@@ -1,4 +1,5 @@
 "use strict";
+//Patterns page script for the Hip to be Square Capstone Project. 
 //This scripts contains code to alternate patterns for either knitting or crocheting.
 //Author:  Pam Belknap
 

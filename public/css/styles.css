@@ -1,4 +1,6 @@
-    /* This is an additional stylesheet for the Capstone site*/
+    /* This is an additional stylesheet for the Hip to be Square Capstone site*/
+    /* Author:  Pamela Belknap
+    
     /* Additional styling for the Bootstrap Carousel template */
     
     .bd-placeholder-img {
@@ -121,14 +123,6 @@
         font-weight: bold;
     }
     
-    .justifycenter {
-        text-align: center;
-        font-weight: bold;
-        font-style: italic;
-        color: rgb(3, 3, 66);
-        s
-    }
-    
     .btnjustifycenter {
         text-align: center;
         font-weight: bold;
@@ -149,33 +143,18 @@
         font-size: 1.1em;
     }
     
-    #errorMsg {
-        color: red;
-        font-weight: bold;
-    }
-    
     #teamLink {
         font-weight: bold;
         text-decoration: underline;
     }
     
-    #patternIllustrations,
-    #teamDiv {
+    #teamDiv,
+    #patternIllustrations {
         padding-top: 1rem;
     }
     
-    #msgDiv {
-        color: darkred;
-        font-weight: bold;
-        font-size: 1.1em;
-    }
-    
-    #msgAdd {
-        color: darkred;
-        font-weight: bold;
-        font-size: 1.1em;
-    }
-    
+    #msgDiv,
+    #msgAdd,
     #msgDivDelete {
         color: darkred;
         font-weight: bold;
