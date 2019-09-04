@@ -52,14 +52,14 @@ $(function() {
                 function(data) {
                     objs = data;
                     $("#teamTableHead").empty();
-                    let markupHeader = "<tr><th>Organization Type</th><th>Team Type</th><th>Team ID</th><th>Team Name</th><th>View/Edit</th></tr>";
+                    let markupHeader = "<tr><th>Organization Type</th><th>Team Type</th><th>Team Gender</th><th>Team Name</th><th>View/Edit</th></tr>";
                     $("#teamTableHead").append(markupHeader);
                     $("#teamTableHead").css("font-weight", "bold");
                     $("#teamTableBody").empty();
                     for (let i = 0; i < objs.length; i++) {
                         let url = "teamdetails.html?teamid=" + objs[i].TeamId;
                         let urledit = "detailsteamedit.html?teamid=" + objs[i].TeamId;
-                        let markupBody = "<tr><td>" + objs[i].League + "</td><td>" + objs[i].TeamType + "</td><td>" + objs[i].TeamId + "</td><td>" + objs[i].TeamName + "</td><td><a class='mr-2' title='View' href=" + url + "><i class='fas fa-binoculars fa-lg' aria-hidden='true'></i></a><a class='edit mr-2' title='Edit' href=" + urledit + "><i class='fa fa-pencil-alt fa-lg' aria-hidden='true'></i></a></td></tr>";
+                        let markupBody = "<tr><td>" + objs[i].League + "</td><td>" + objs[i].TeamType + "</td><td>" + objs[i].TeamGender + "</td><td>" + objs[i].TeamName + "</td><td><a class='mr-2' title='View' href=" + url + "><i class='fas fa-binoculars fa-lg' aria-hidden='true'></i></a><a class='edit mr-2' title='Edit' href=" + urledit + "><i class='fa fa-pencil-alt fa-lg' aria-hidden='true'></i></a></td></tr>";
                         $("#teamTableBody").append(markupBody);
                     } // end of for
                 } // end of CALLBACK function
@@ -76,7 +76,7 @@ $(function() {
                     objs = data;
                     let chosenCraft = $("#teamType").val();
                     $("#teamTableHead").empty();
-                    let markupHeader = "<tr><th>Organization Type</th><th>Team Type</th><th>Team ID</th><th>Team Name</th><th>View/Edit</th></tr>";
+                    let markupHeader = "<tr><th>Organization Type</th><th>Team Type</th><th>Team Gender</th><th>Team Name</th><th>View/Edit</th></tr>";
                     $("#teamTableHead").append(markupHeader);
                     $("#teamTableHead").css("font-weight", "bold");
                     $("#teamTableBody").empty();
@@ -86,7 +86,7 @@ $(function() {
                             let urledit = "detailsteamedit.html?teamid=" + objs[i].TeamId;
                             let markupBody = "<tr><td>" + objs[i].League +
                                 "</td><td>" + objs[i].TeamType +
-                                "</td><td>" + objs[i].TeamId +
+                                "</td><td>" + objs[i].TeamGender +
                                 "</td><td>" + objs[i].TeamName +
                                 "</td><td><a class='mr-2' title='View' href=" +
                                 url + "><i class='fas fa-binoculars fa-lg' aria-hidden='true'></i></a><a class='edit mr-2' title='Edit' href=" +
@@ -107,14 +107,14 @@ $(function() {
                 function(data) {
                     objs = data;
                     $("#teamTableHead").empty();
-                    let markupHeader = "<tr><th>Organization Type</th><th>Team Type</th><th>Team ID</th><th>Team Name</th><th>View/Edit</th></tr>";
+                    let markupHeader = "<tr><th>Organization Type</th><th>Team Type</th><th>Team Gender</th><th>Team Name</th><th>View/Edit</th></tr>";
                     $("#teamTableHead").append(markupHeader);
                     $("#teamTableHead").css("font-weight", "bold");
                     $("#teamTableBody").empty();
                     for (let i = 0; i < objs.length; i++) {
                         let url = "teamdetails.html?teamid=" + objs[i].TeamId;
                         let urledit = "detailsteamedit.html?teamid=" + objs[i].TeamId;
-                        let markupBody = "<tr><td>" + objs[i].League + "</td><td>" + objs[i].TeamType + "</td><td>" + objs[i].TeamId + "</td><td>" + objs[i].TeamName + "</td><td><a class='mr-2' title='View' href=" + url + "><i class='fas fa-binoculars fa-lg' aria-hidden='true'></i></a><a class='edit mr-2' title='Edit' href=" + urledit + "><i class='fa fa-pencil-alt fa-lg' aria-hidden='true'></i></a></td></tr>";
+                        let markupBody = "<tr><td>" + objs[i].League + "</td><td>" + objs[i].TeamType + "</td><td>" + objs[i].TeamGender + "</td><td>" + objs[i].TeamName + "</td><td><a class='mr-2' title='View' href=" + url + "><i class='fas fa-binoculars fa-lg' aria-hidden='true'></i></a><a class='edit mr-2' title='Edit' href=" + urledit + "><i class='fa fa-pencil-alt fa-lg' aria-hidden='true'></i></a></td></tr>";
                         $("#teamTableBody").append(markupBody);
                     } // end of for
                 } // end of CALLBACK function

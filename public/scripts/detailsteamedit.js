@@ -1,4 +1,5 @@
 "use strict";
+//detailsteamedit page script for the Hip to be Square Capstone Project.
 //This script contains code to dynamically create a team edit form from a JSON file.
 //Author:  Pam Belknap
 
