@@ -146,6 +146,13 @@
         font-weight: bold;
         text-decoration: underline;
     }
+    /* Fixes an unordered list so that the list doesn't have
+    bullets and does not indent */
+    
+    #managerList {
+        list-style: none;
+        padding-left: 0;
+    }
     
     #teamDiv,
     #patternIllustrations {
