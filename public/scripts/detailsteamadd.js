@@ -112,4 +112,4 @@ function validateForm() {
 //when CANCEL button is clicked:
 function cancelAdd() {
     location.href = "teams.html";
-}; // end of Cancel Function
+}; // end of cancelAdd Function

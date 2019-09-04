@@ -231,6 +231,6 @@ $(function() {
         function cancelUpdates() {
             location.reload();
             location.href = "teamdetails.html?teamid=" + $("#teamId").val();
-        }; // end of Cancel Function
+        }; // end of cancelUpdates Function
 
     }) // end of READY EVENT HANDLER
