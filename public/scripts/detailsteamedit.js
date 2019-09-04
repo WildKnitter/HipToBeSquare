@@ -1,7 +1,7 @@
 "use strict";
 //detailsteamedit page script for the Hip to be Square Capstone Project.
 //This script contains code to dynamically create a team edit form from a JSON file.
-//Author:  Pam Belknap
+//Author:  Pamela Belknap
 
 /*
 Key for understanding the fields in the JSON file:
@@ -32,7 +32,7 @@ $(function() {
                     //This function dynamically creates the team table edit form.
                     function createDetailTable() {
                         $("#detailsFormCreate").empty();
-                        let markupBody0 = "<div class='form-group'><label for='teamId'>Team ID:</label><input type='text' class='form-control' id='teamId' name='teamid' value = '" + obj.TeamId + "' readonly></div>";
+                        let markupBody0 = "<div class='form-group'><input type='hidden' class='form-control' id='teamId' name='teamid' value = '" + obj.TeamId + "' ></div>";
                         $("#detailsFormCreate").append(markupBody0);
                         let markupBody1 = "<div class='form-group'><label for='teamName'>Team Name:</label><input type='text' class='form-control' id='teamName' name='teamname' value = '" + obj.TeamName + "' ></div>";
                         $("#detailsFormCreate").append(markupBody1);

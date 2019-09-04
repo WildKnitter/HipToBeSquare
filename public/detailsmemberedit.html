@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--detailsmemberedit page for the Hip to be Square Capstone Project.-->
 <!--Page to remove a member's registration for a team and have the results post to a JSON file.-->
 
 <head>
@@ -66,12 +67,10 @@
         <div class="col-md-8 offset-md-4">
             <form id="memberDetailsFormEdit" name="memberDetailsFormEdit" method="POST" action="index.html">
                 <div class="form-group">
-                    <label for="teamid">Team ID</label>
-                    <input id="teamid" name="teamid" readonly>
+                    <input type="hidden" id="teamid" name="teamid">
                 </div>
                 <div class="form-group">
-                    <label for="memberid">Member ID</label>
-                    <input id="memberid" name="memberid" readonly>
+                    <input type="hidden" id="memberid" name="memberid">
                 </div>
                 <div class="form-group">
                     <label for="membername">Member Name</label>

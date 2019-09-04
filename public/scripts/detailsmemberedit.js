@@ -1,6 +1,7 @@
 "use strict";
+//detailsmemberedit page script for the Hip to be Square Capstone Project.
 //This script contains code to edit a team member and post it to a JSON file.
-//Author:  Pam Belknap
+//Author:  Pamela Belknap
 
 /*
 Key for understanding the fields in the JSON file:

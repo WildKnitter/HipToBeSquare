@@ -1,6 +1,7 @@
 "use strict";
+//Register page script for the Hip to be Square Capstone Project.
 //This script contains code to post member registrations for teams to a JSON file.
-//Author:  Pam Belknap
+//Author:  Pamela Belknap
 
 /*
 Key for understanding the fields in the JSON file:
