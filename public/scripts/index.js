@@ -1,4 +1,5 @@
 "use strict";
+// Index page script for the Hip to be Square Capstone Project.-->
 // This script contains code to dynamically create dropdown information on different 
 // organizations from a JSON file.
 // Author:  Pam Belknap
