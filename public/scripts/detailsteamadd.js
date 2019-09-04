@@ -1,4 +1,5 @@
 "use strict";
+//detailsteamadd page script for the Hip to be Square Capstone Project.--> 
 //This script contains code to post a new team to a JSON file.
 //Author:  Pam Belknap
 

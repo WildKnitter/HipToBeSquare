@@ -14,6 +14,9 @@ Our final project! A site to sign up teams and team members for a crafting chari
 - ### What do they want from my site?
 - To view the leagues, teams, and members for a charity knitting and crocheting drive.
 - To sign up teams and members for the drive.
+- To edit team and member information.
+- To be able to unregister members and delete a team.
+- To access some simple knitting and crocheting patterns to get started with their squares.
 
 ## Server setup and start
 This assumes that the user has Node.js installed globally on their machine.
