@@ -31,7 +31,7 @@ $(function() {
 
                     createDetailTable();
 
-                    //This function dynamically creates the team information.
+                    //This function dynamically creates the team information using bootstrap formatting.
                     function createDetailTable() {
                         let url = "register.html?teamid=" + chosenDetail +
                             "&teamname=" + obj.TeamName +
@@ -42,23 +42,23 @@ $(function() {
                             "&membercount=" + obj.Members.length;
                         let urledit = "detailsteamedit.html?teamid=" + chosenDetail;
 
-                        $("#teamTableBody").empty();
-                        let markupBody1 = "<tr class='firstRow'><td>Team Name</td><td id='teamName'>" + obj.TeamName + "</td></tr>";
-                        $("#teamTableBody").append(markupBody1);
-                        let markupBody2 = "<tr><td>Organization</td><td id='league'>" + obj.League + "</td></tr>";
-                        $("#teamTableBody").append(markupBody2);
-                        let markupBody3 = "<tr><td>Team Type</td><td id='teamType'>" + obj.TeamType + "</td></tr>";
-                        $("#teamTableBody").append(markupBody3);
-                        let markupBody4 = "<tr><td>Team Manager</td><td id='managerName'>" + obj.ManagerName + "<br>" + "<id='managerPhone'>" + obj.ManagerPhone + "<br>" + "<id='managerEmail'>" + obj.ManagerEmail + "</td></tr>";
-                        $("#teamTableBody").append(markupBody4);
-                        let markupBody5 = "<tr><td>Maximum Members to a Team</td><td id='maxTeamMembers'>" + obj.MaxTeamMembers + "</td></tr>";
-                        $("#teamTableBody").append(markupBody5);
-                        let markupBody6 = "<tr><td>Team Age Range</td><td id='minMemberAge'>" + obj.MinMemberAge + " to " + "<id='minMemberAge'>" + obj.MaxMemberAge + "</td></tr>";
-                        $("#teamTableBody").append(markupBody6);
-                        let markupBody7 = "<tr><td>Team Gender</td><td id='teamGender'>" + obj.TeamGender + "</td></tr>";
-                        $("#teamTableBody").append(markupBody7);
-                        let markupBody8 = "<tr><td>" + "Members Registered" + "</td><td id='memberCnt'></td></tr>";
-                        $("#teamTableBody").append(markupBody8);
+                        $("#detailsTeam").empty();
+                        let markupBody1 = "<div class='row justify-content-md-center firstRow'><div class='col-md-5'><p>Team Name</p></div><div class='col-md-5'><p id='teamName'>" + obj.ManagerName + "</p></div></div>";
+                        $("#detailsTeam").append(markupBody1);
+                        let markupBody2 = "<div class='row justify-content-md-center'><div class='col-md-5'><p>Organization</p></div><div class='col-md-5'><p id='league'>" + obj.League + "</p></div></div>";
+                        $("#detailsTeam").append(markupBody2);
+                        let markupBody3 = "<div class='row justify-content-md-center'><div class='col-md-5'><p>Team Type</p></div><div class='col-md-5'><p id='teamType'>" + obj.TeamType + "</p></div></div>";
+                        $("#detailsTeam").append(markupBody3);
+                        let markupBody4 = "<div class='row justify-content-md-center'><div class='col-md-5'><p>Team Manager</p></div><div class='col-md-5'><ul id='managerList'><li id='managerName'>" + obj.ManagerName + "</li><li id='managerPhone'>" + obj.ManagerPhone + "</li><li id='managerEmail'>" + obj.ManagerEmail + "</li></ul></div></div>";
+                        $("#detailsTeam").append(markupBody4);
+                        let markupBody5 = "<div class='row justify-content-md-center'><div class='col-md-5'><p>Maximum Members to a Team</p></div><div class='col-md-5'><p id='maxTeamMembers'>" + obj.MaxTeamMembers + "</p></div></div>";
+                        $("#detailsTeam").append(markupBody5);
+                        let markupBody6 = "<div class='row justify-content-md-center'><div class='col-md-5'><p>Team Age Range</p></div><div class='col-md-5'><p><span id='minMemberAge'>" + obj.MinMemberAge + " to </span><span id='maxMemberAge'>" + obj.MaxMemberAge + "</span></p></div></div>";
+                        $("#detailsTeam").append(markupBody6);
+                        let markupBody7 = "<div class='row justify-content-md-center'><div class='col-md-5'><p>Team Gender</p></div><div class='col-md-5'><p id='teamGender'>" + obj.TeamGender + "</p></div></div>";
+                        $("#detailsTeam").append(markupBody7);
+                        let markupBody8 = "<div class='row justify-content-md-center'><div class='col-md-5'><p>Members Registered</p></div><div class='col-md-5'><p id='memberCnt'></p></div></div>";
+                        $("#detailsTeam").append(markupBody8);
 
                         //Member Count
                         if (obj.Members.length == 0) {
