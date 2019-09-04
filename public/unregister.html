@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--Unregister Page for the Hip to be Square Capstone Project.-->
 <!--Page to remove a member's registration for a team and have the results post to a JSON file.-->
 
 <head>
@@ -65,11 +66,9 @@
     <div class="row">
         <div class="col-md-8 offset-md-4">
             <form id="unRegisterForm" name="unRegisterForm" method="POST" action="index.html">
-                <label for="teamid">Team ID</label>
-                <input id="teamid" name="teamid" readonly>
+                <input type="hidden" id="teamid" name="teamid" readonly>
                 <br />
-                <label for="memberid">Member ID</label>
-                <input id="memberid" name="memberid" readonly>
+                <input type="hidden" id="memberid" name="memberid" readonly>
                 <br />
                 <label for="membername">Member Name</label>
                 <input id="membername" name="membername" readonly>
